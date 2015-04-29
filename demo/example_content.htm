@@ -3,125 +3,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>content的各种值</title>
+<link rel="stylesheet" href="css/demo.css"/>
 </head>
 
 <body>
-<style type="text/css">
-*{ margin:0px; padding:0px; font-size:14px;}
-li{ list-style: none;}
-body{background: -webkit-radial-gradient(center, circle cover, #f7fbfc 0%, #add9e4 100%);}
-.container{ width: 800px;box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);margin: -5px auto; padding: 20px 0; background-color:#fff; border-radius:10px;}
-section{ margin-bottom:15px;}
-.title_wrap{position: relative; height:40px; margin:0 0 10px -15px; box-shadow: 0px 0px 2px rgba(0,0,0,0.3);}
-.title_wrap::before{position: absolute; left:-15px; top:25px; display: block; content:""; border-color: transparent #7d90a3 transparent transparent;border-style: solid;border-width:15px;}
-.title_wrap h2{position:relative; z-index:1; background: #7f9db9; font-size:14px; line-height:40px; padding-left:20px; color: #fff;text-shadow: 1px 1px 2px rgba(0,0,0,0.2);}
-.content_wrap{ padding:0 15px 0 20px; font-size:12px;}
-.content_wrap p{font-size:14px;line-height:24px;}
-
-.content_wrap pre{width:90%; margin:10px 0 20px; background-color: #f8f8f8; border: 1px solid #ddd; font-size:14px; line-height:20px; overflow: auto; padding: 6px 10px; border-radius: 3px; font-family: Helvetica, arial,sans-serif; font-family: Consolas,"Liberation Mono",Courier,monospace; }
-
-.content:after {content: attr(href);}
-
-#counter li{
-  line-height:24px;
-  list-style:none outside none;
-  counter-increment: title1;
-}
-#counter li:before{
-  content:"第"counter(title1)"章：";
-  font-size:14px;
-  color:#f00;
-}
-#counter li li{
-  margin-left:28px;
-  counter-increment: title2;
-}
-#counter li li:before{
-  content:counter(title1)"."counter(title2)" ";
-}
-
-.title_txt:hover {position: relative;}
-.title_txt[href]:hover:after {
-  content: attr(title);
-  padding: 4px 8px;
-  color: #333;
-  position: absolute;
-  left: 10px; 
-  top: -30px;
-  white-space: nowrap; 
-  z-index: 20px;
-  border-radius: 5px;  
-  box-shadow: 0px 0px 2px #333;  
-  background-image: -webkit-linear-gradient(top, #eeeeee, #cccccc);  
-}
-
-.text dd, .text address { quotes: "\300A" "\300B"; display: inline; }
-.text dd,.text dt{ line-height:24px;}
-.text dd:before { content: open-quote; }
-.text dd:after { content: close-quote; }
-dd + address:before { content: "（"; display: inline; }
-dd + address:after { content: "）"; display: inline; }
-
-/* 为不同语言指定引号的表现 */
-:lang(en) > q {quotes:'"' '"';}
-:lang(no) > q {quotes:"«" "»";}
-:lang(ch) > q {quotes:"“" "”";}
-
-/* 在q标签的前后插入引号 */
-q:before {content:open-quote;}
-q:after  {content:close-quote;}
-
-p a[href$=".pdf"]:after {content: url("http://www.zhangxinxu.com/study/image/icon_pdf.png");}
-p a[rel="external"]:after {content: url("http://www.zhangxinxu.com/study/image/icon_link.png");}
-
-.icon_list a{font-size:16px;}
-.icon_list a[href]:before{content:'';margin-right:5px;}
-
-.icon_list a[href$='.txt']:before{
-  content:url(../img/icon_txt.gif);
-}
-.icon_list a[href$='.pdf']:before{
-  content:url(../img/icon_pdf.gif);
-}
-.icon_list a[href$='.doc']:before{
-  content:url(../img/icon_doc.gif);
-}
-.icon_list a[href$='.jpg']:before{
-  content:url(../img/icon_pic.gif);
-}
-.icon_list a[href^="mailto:"]:before{
-  content:url(../img/icon_mailto.gif);
-}
-
-#special li:before,
-#special li:after{
-  color:#f00;
-}
-#special li{
-  line-height:24px;
-}
-#special li:nth-child(2n+1):before{
-  color:#ccc;
-}
-#special li:first-child:before,
-#special li:first-child:after{
-  content:"\25ba";
-}
-#special li:first-child:after{
-  transform:scale(-1);
-}
-#special li:nth-of-type(2):before{
-  content:"\2714";
-}
-#special li:nth-child(3):after{
-  content:"\00bb";
-}
-#special li:last-of-type:before{
-  content:"\00a9";
-  margin-right:5px;
-}
-
-</style>
 
 <div class="container">
   <section>
@@ -147,9 +32,11 @@ p a[rel="external"]:after {content: url("http://www.zhangxinxu.com/study/image/i
 
   <section>
     <div class="title_wrap">
-      <h2>计数器生成有序列表</h2>
+      <h2>使用计数器生成有序列表</h2>
     </div>
     <div class="content_wrap">
+      <p><a href="http://msdn.microsoft.com/zh-cn/library/gg721755%28v=Expression.40%29.aspx">计数器详解</a></p>
+      <!-- <p><a href="http://www.w3school.com.cn/cssref/pr_gen_counter-increment.asp">http://www.w3school.com.cn/cssref/pr_gen_counter-increment.asp</a></p> -->
       <ol class="demo" id="counter">
           <li>
             css3新增的选择器
@@ -271,22 +158,11 @@ q:after  {content:close-quote;}
       </ul>
 <pre>
 #special li:first-child:before,
-#special li:first-child:after{
-  content:"\25ba";
-}
-#special li:first-child:after{
-  transform:scale(-1);
-}
-#special li:nth-of-type(2):before{
-  content:"\2714";
-}
-#special li:nth-child(3):after{
-  content:"\00bb";
-}
-#special li:last-of-type:before{
-  content:"\00a9";
-  margin-right:5px;
-}
+#special li:first-child:after{content:"\25ba";}
+#special li:first-child:after{transform:scale(-1);}
+#special li:nth-of-type(2):before{content:"\2714";}
+#special li:nth-child(3):after{content:"\00bb";}
+#special li:last-of-type:before{content:"\00a9";}
 </pre>
   </div>
   </section>

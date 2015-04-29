@@ -3,42 +3,47 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>伪元素first-line和first-letter</title>
+<link rel="stylesheet" href="css/demo.css"/>
 </head>
 
 <body>
-<style type="text/css">
-.content1::first-line {font-weight:bold; color:#fff; background-color:#f00;}
-.content2::first-letter { color: green; font-size: 200%; font-weight:bold; text-transform:lowercase}
-
-
-.txt_input,.txt_area{ width:400px;}
-
-.txt_input::first-line,
-.txt_area::first-line
-{font-weight:bold; color:#fff; background-color:#f00;}
-
-.txt_input::first-letter,
-.txt_area::first-letter
- { color: blue; font-size: 200%; font-weight:bold; text-transform:lowercase}
-
-</style>
-
-<p class="content1">This is a somewhat long HTML paragraph
+<div class="container auto">
+	<div class="title_wrap">
+      <h2>first-line</h2>
+    </div>
+<section>
+	<div class="content_wrap">
+	<p class="content1">This is a somewhat long HTML paragraph
 that will be <br> broken into several lines. The first line will be identified by a fictional tag sequence. The other lines will be treated as ordinary lines in the 
 paragraph.</p>
-
 <p class="content1">This is a somewhat long HTML paragraph that will be broken into several lines. The first line will be identified by a fictional tag sequence. The other lines will be treated as ordinary lines in the 
 paragraph.</p>
+</div>
+</section>
 
+<section>
+	<div class="title_wrap">
+      <h2>first-letter</h2>
+    </div>
+    <div class="content_wrap">
 <p class="content2">This is a somewhat long HTML paragraph
 that will be broken into several lines. The first line will be identified by a fictional tag sequence. The other lines will be treated as ordinary lines in the 
 paragraph.</p>
-
 <p class="content2">在最新的标准中明确注明，伪元素应用":: "和伪类进行区分，以前为考虑兼容性，在css1和2规范中允许单引号通用于伪类和伪元素的情况，在新规范中不再被允许了。建议大家从遵循规范角度出发，在伪元素前使用":: "。
 </p>
+</div>
+</section>
 
-<input type="text" class="txt_input">
-<textarea class="txt_area"  name="" id="" cols="30" rows="10"></textarea>
+<section>
+	<div class="title_wrap">
+      <h2>表单元素的支持情况</h2>
+    </div>
+    <div class="content_wrap">
+	<input type="text" class="txt_input">
+	<textarea class="txt_area"  name="" id="" cols="30" rows="10"></textarea>
+	</div>
+</section>
+</div>
 
 </body>
 </html>

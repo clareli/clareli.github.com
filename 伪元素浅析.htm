@@ -21,39 +21,19 @@
 	.reveal h1{ font-size:1.6em; margin-bottom:30px; font-family: "Verdana","microsoft yahei",sans-serif; letter-spacing:0;}
 	.reveal h2{ font-size:1em; margin:1em auto 0.5em; font-family: "Verdana","microsoft yahei",sans-serif;}
 	.reveal p{ clear:both;}
+	.reveal pre{width:100%; background-color: #f8f8f8; border: 1px solid #ddd; font-size: 18px; line-height: 26px; overflow: auto; padding: 6px 10px; border-radius: 3px; font-family: Helvetica, arial,sans-serif; font-family: Consolas,"Liberation Mono",Courier,monospace; }
+	.reveal pre .notes{color: #998;font-style: italic;}
+
 	.reveal .text{ font-size:0.7em; line-height:1.6em;}
 	.reveal .source{ font-size:0.5em; line-height:1.6em;}
 	.reveal .link{ float: right; margin:5px auto 20px;}
 	.reveal .link a{font-size:0.7em;font-style:italic;}
-
 	.reveal .tip{ font-size:0.7em; line-height:1.6em;}
 	.reveal .tip a{line-height:1.6em;}
 	.reveal .tip::before{ content:"注："}
-
-/*	.tr{ text-align: right; }
-	.fl{ float: left; }
-	.fr{ float: right; }*/
-	
-	.reveal .demo_pic_list{ margin:0 auto; list-style:none; width:1100px;}
-	.reveal .demo_pic_list::after
-{ display:block; clear:both; height:0; content:"\200B"; }
-
-	.reveal pre{width:100%; background-color: #f8f8f8; border: 1px solid #ddd; font-size: 18px; line-height: 26px; overflow: auto; padding: 6px 10px; border-radius: 3px; font-family: Helvetica, arial,sans-serif; font-family: Consolas,"Liberation Mono",Courier,monospace; }
-	.reveal pre .notes{color: #998;font-style: italic; }
-
-	.demo_pic_list li{ float:left; width:320px; margin-right:1em;}
-	.demo_pic_list li img{ width:320px;}
-	.demo_pic_list li span{ font-size:22px;}
-	
-	.reveal .test_pic_list { margin:0 auto; list-style:none; width:1200px;}
-	.reveal .test_pic_list ::after{ display:block; clear:both; height:0; content:"\200B"; }
-	.test_pic_list li{ float:left; width:250px; margin-right:30px;}
-	.test_pic_list li:last-child{ margin-right:0;}
-	.test_pic_list li img{ float:left; width:250px;}
-	.test_pic_list li span{ font-size:16px;}
-
 	.reveal .content_list{ font-size:0.8em;}
 	.reveal .author{ float: right; margin-top:30px; font-size:0.8em;}
+	.reveal .content_list li a{line-height:2;}
 	
 	</style>
 </head>
@@ -79,7 +59,7 @@
          		<p class="source">Pseudo-classes classify elements on characteristics other than their name, attributes or content; in principle characteristics that cannot be deduced from the document tree. Pseudo-classes may be dynamic, in the sense that an element may acquire or lose a pseudo-class while a user interacts with the document. The exceptions are ':first-child', which can be deduced from the document tree, and ':lang()', which can be deduced from the document tree in some cases.</p>
                 <small class="link"><a href="http://www.w3.org/TR/2011/REC-CSS2-20110607/selector.html#pseudo-elements">http://www.w3.org/TR/2011/REC-CSS2-20110607/selector.html#pseudo-elements</a></small>
                 <p class="text">伪类被划分为一类是基于特征而不是它们的名字、属性或者内容；原则上伪类是不存在于DOM树中的，伪类给人感觉是动态的（更像一种状态），当用户在页面点击操作时元素可以获得或者失去一个伪类。但“:first-child”是个例外，它存在于DOM树中， “‘:lang()”这个伪类在某些例子中也会出现在DOM树中。</p>
-                <p class="tip">参考阅读<a href="http://swordair.com/origin-and-difference-between-css-pseudo-classes-and-pseudo-elements/">CSS伪类与CSS伪元素的区别及由来</a></p>
+                <p class="tip">参考阅读<a href="http://swordair.com/origin-and-difference-between-css-pseudo-classes-and-pseudo-elements/">"CSS伪类与CSS伪元素的区别及由来"</a></p>
 			</section>
 
 			<section>
@@ -100,8 +80,8 @@
 						<li>::before <small>css2.1</small></li>
 						<li>::after <small>css2.1</small></li>
 						<li>
-							<i>::selection <small>css3</small></i><br>
-							<p class="tip">并未列入标准(曾经被写入推荐标准，但后来被删除),目前已被各大主流浏览器支持。<a href="http://www.w3schools.com/cssref/sel_selection.asp ">详解</a></p>
+							<i>::selection <small>css3</small></i> <a href="demo/selection.htm">demo</a><br>
+							<p class="tip">并未列入标准(曾经被写入推荐标准，但后来被删除),目前已被各大主流浏览器支持。ie9+支持<a href="http://www.w3schools.com/cssref/sel_selection.asp ">详解</a></p>
 						</li>
 					</ul>
 				</section>
@@ -123,33 +103,54 @@
 
 				<section>
 					<h1>::before和::after</h1>
-					<p class="text">The ':before' and ':after' pseudo-elements can be used to insert generated content before or after an element's content.</p>
-					<p class="text">The ':before' and ':after' pseudo-elements can be used to insert generated content before or after an element's content.</p>
-
-					
-					<small class="fr">http://www.w3.org/TR/2011/REC-CSS2-20110607/selector.html#before-and-after</small>
-
-					<p class="tip">input不支持::before和::after </p>
-					<small class="link">http://www.zhihu.com/question/21296044</small>
+					<p class="source">The ':before' and ':after' pseudo-elements can be used to insert generated content before or after an element's content.</p>
+					<small class="link"><a href="http://www.w3.org/TR/2011/REC-CSS2-20110607/selector.html#before-and-after">http://www.w3.org/TR/2011/REC-CSS2-20110607/selector.html#before-and-after</a></small>
+					<p class="text">":before"和":after"伪元素可以在一个元素的前后插入生成的内容</p>
+					<p class="tip">input不支持::before和::after&nbsp;<a href="http://www.zhihu.com/question/21296044">参考</a></p>
 				</section>
 			</section>
 
 			<section>
-				<section>
-					<h1>::before ::after应用详解</h1>
-					<p class="text">In some cases, authors may want user agents to render content that does not come from the document tree. One familiar example of this is a numbered list; the author does not want to list the numbers explicitly, he or she wants the user agent to generate them automatically. Similarly, authors may want the user agent to insert the word "Figure" before the caption of a figure, or "Chapter 7" before the seventh chapter title. For audio or braille in particular, user agents should be able to insert these strings.</p>
-
-				</section>
 
 				<section>
 					<h1>"content"属性值的使用</h1>
-					<ul>
-						<li></li>
+					<p class="source">In some cases, authors may want user agents to render content that does not come from the document tree. One familiar example of this is a numbered list; the author does not want to list the numbers explicitly, he or she wants the user agent to generate them automatically. Similarly, authors may want the user agent to insert the word "Figure" before the caption of a figure, or "Chapter 7" before the seventh chapter title. For audio or braille in particular, user agents should be able to insert these strings.</p>
+					<small class="link"><a href="http://www.w3.org/TR/2011/REC-CSS2-20110607/generate.html">http://www.w3.org/TR/2011/REC-CSS2-20110607/generate.html</a></small>
+					<p class="text">某些时候，作者希望（浏览器）可以渲染出不存在于dom树中的内容。最常见例子就是一个有序列表；作者并不想手写出列表项序号，他希望（浏览器）可以自动生成这些内容。通常情况下，作者希望（浏览器）可以在一个标题前生成一个对应序号，或者在第七章的标题前生成“第七章”这样的文字。特别是一些读屏辅助软件，应该可以生成插入这些序号或文字。</p>
+
+					<small><a href="demo/example_content.htm">content使用举例</a></small>
+				</section>
+				
+				<section>
+					<h1>个人在实际项目中的一些应用</h1>
+					<ul class="content_list">
+						<li><a href="demo/work/demo1.htm">模拟浏览器控件</a></li>
+						<li><a href="demo/work/demo2.htm">改变select样式</a></li>
+						<li><a href="demo/work/demo3.htm">圆角效果</a></li>
+						<li><a href="demo/work/demo4.htm">插入icon</a></li>
 					</ul>
 				</section>
+
+				<section>
+					<h1>国外精彩实例</h1>
+					<ul class="content_list">
+						<li>纯css icon <a href="http://nicolasgallagher.com/pure-css-gui-icons/">Pure CSS GUI icons </a></li>
+						<li>导航hover效果 <a href="http://tympanus.net/Development/CreativeLinkEffects/">Creative Link Effects</a></li>
+						<li>阴影效果 <a href="http://www.paulund.co.uk/playground/demo/css_box_shadow/">CSS Box Shadow Effects</a></li>
+						<li>层叠效果 <a href="http://designshack.net/articles/css/use-pseudo-elements-to-create-an-image-stack-illusion/">Use Pseudo Elements to Create an Image Stack Illusion</a>
+						</li>
+						<li>Ribbons 
+							<a href="http://tihid.com/2014/04/17/12-ribbons-using-css3/">12 Ribbons using CSS3</a>
+							<a href="http://designreflect.com/css3-3d-ribbons/">http://designreflect.com/css3-3d-ribbons/</a>
+						</li>
+					</ul>					
+				</section>
 			</section>
-            
-           
+
+           <section>
+					<h1>个人使用心得和建议</h1>
+					<p class="text">伪元素非常实用，功能强大，利用伪元素可以大量精简html代码，更好的推进结构与表现的分离；但鉴于伪元素不会出现在DOM树中的特点，从页面可访问性角度出发，不能滥用伪元素，在实际工作中应当注意避免使用伪元素来生成对网页的可用性有影响的内容。</p>
+			</section>
 			
 		</div>
 	</div>

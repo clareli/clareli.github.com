@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>伪元素selection</title>
+<link rel="stylesheet" href="css/demo.css"/>
+</head>
+
+<body>
+<div class="container">
+<section>
+	<div class="title_wrap">
+      <h2>默认状态</h2>
+    </div>
+	<div class="content_wrap">
+		<p>This is a somewhat long HTML paragraph that will be broken into several lines. The first line will be identified by a fictional tag sequence. The other lines will be treated as ordinary lines in the 
+	paragraph.</p>
+	</div>
+</section>
+
+<section>
+	<div class="title_wrap">
+      <h2>重定义后的selection样式</h2>
+    </div>
+	<div class="content_wrap">
+		<p class="style1">This is a somewhat long HTML paragraph that will be broken into several lines. The first line will be identified by a fictional tag sequence. The other lines will be treated as ordinary lines in the 
+	paragraph.</p>
+<pre>
+.style1::selection {
+	background-color:#eee;
+	color:#f00;
+	text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+	font-size:20px;
+}
+.style1::-moz-selection {
+	background-color:#eee;
+	color:#f00;
+	text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+	font-size:20px;
+}	
+</pre>
+	</div>
+</section>
+
+</div>
+
+</body>
+</html>

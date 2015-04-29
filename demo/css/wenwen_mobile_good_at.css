@@ -1,0 +1,71 @@
+@charset "utf-8";
+/*
+ * 问问触屏版回答中心
+ * 创建：clareli
+ * 维护：clareli
+ */
+ 
+/* clearfix */
+.title_wrap::after,
+.item_wrap::after
+{content:"\200B";display:block;height:0;clear:both;}
+
+/* background-image 
+.btnDel,
+.addBtn::before,
+.category_wrap::after,
+.disable::after
+{background:url(http://cache.soso.com/wenwen/mobile/ww_mobile_base_pic.png) no-repeat; background-size:110px 110px;}*/
+
+/* icon */
+.main_wrap{margin-top:10px;min-height:250px;}
+.btnDel{background-position:-70px -90px;float:right;display:block;width:21px;height:21px;border:0 none;}
+
+/* main */
+.tip_wrap{margin:15px 10px 10px;}
+.tip_wrap h2{float:left;font-size:14px;font-weight:normal;}
+.tip_wrap span{font-size:12px;color:#9d9d9d;margin-left:10px;}
+.item_wrap{margin:5px 10px;padding:0 15px;background-color:#f9f9f9;border:1px solid #cdcdcd;border-radius:3px;line-height:43px;font-size:16px;text-shadow:0 1px #fff;color:#5f5f5f;}
+.item_wrap .btnDel{margin-top:12px;}
+
+.category_wrap{position:relative;margin:5px 10px;}
+.category_wrap select{
+	font-family:"Microsoft YaHei";
+	box-sizing:border-box;
+	width:100%;
+	padding:0 15px;
+	-webkit-appearance:none;
+	border:1px solid #cdcdcd;
+	border-radius:3px;
+	line-height:40px;
+	font-size:16px;
+	text-shadow:0 1px #fff;
+	color:#5f5f5f;
+	/* background:-moz-linear-gradient(top,#fff,#e5e5e5);
+	background:-webkit-linear-gradient(top,#fff,#e5e5e5);
+	background:-moz-linear-gradient(top, #fff 0%, #e5e5e5 100%);*/
+	background-image:-webkit-gradient(linear,0 0,0 100%,from(#fff),to(#e5e5e5));
+}
+.category_wrap::after,.disable::after{position:absolute;z-index:2;top:20px;right:10px;display:block;content:'';width:10px;height:7px;background-position:-25px 0;}
+
+.addBtn,.submitBtn{
+	margin:0 auto;
+	display:block;
+	line-height:33px;
+	text-align:center;
+	border:1px solid #cdcdcd;
+	border-radius:3px;
+	font-size:14px;
+	/*text-shadow:0 1px #fff;*/
+	color:#5f5f5f;
+	/* background:-moz-linear-gradient(top,#fff,#e5e5e5);
+	background:-webkit-linear-gradient(top,#fff,#e5e5e5);
+	background:-moz-linear-gradient(top, #fff 0%, #e5e5e5 100%);*/
+	background-image:-webkit-gradient(linear,0 0,0 100%,from(#fff),to(#e5e5e5));
+}
+.addBtn{margin:20px auto;width:190px;}
+.addBtn::before{background-position:-62px 0;display:inline-block;content:""; margin-right:5px;width:10px;height:11px;vertical-align:baseline;}
+.submitBtn{margin:20px auto;width:150px;}
+
+.disable select{color:#bdbdbd;}
+.disable::after{background-position:-25px -8px;}
