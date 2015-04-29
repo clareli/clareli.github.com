@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>伪元素浅析</title>
+	<meta name="description" content="">
+	<meta name="author" content="clareli">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+	<!-- <link rel="stylesheet" media="print" href="css/print/pdf.css"> -->
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+	<style type="text/css">
+	.reveal {font-family: "Verdana","microsoft yahei",sans-serif;}
+	.reveal .title{ text-align: center;}
+	.reveal h1{ font-size:1.6em; margin-bottom:30px; font-family: "Verdana","microsoft yahei",sans-serif; letter-spacing:0;}
+	.reveal h2{ font-size:1em; margin:1em auto 0.5em; font-family: "Verdana","microsoft yahei",sans-serif;}
+	.reveal p{ clear:both;}
+	.reveal .text{ font-size:0.7em; line-height:1.6em;}
+	.reveal .source{ font-size:0.5em; line-height:1.6em;}
+	.reveal .link{ float: right; margin:5px auto 20px;}
+	.reveal .link a{font-size:0.7em;font-style:italic;}
+
+	.reveal .tip{ font-size:0.7em; line-height:1.6em;}
+	.reveal .tip a{line-height:1.6em;}
+	.reveal .tip::before{ content:"注："}
+
+/*	.tr{ text-align: right; }
+	.fl{ float: left; }
+	.fr{ float: right; }*/
+	
+	.reveal .demo_pic_list{ margin:0 auto; list-style:none; width:1100px;}
+	.reveal .demo_pic_list::after
+{ display:block; clear:both; height:0; content:"\200B"; }
+
+	.reveal pre{width:100%; background-color: #f8f8f8; border: 1px solid #ddd; font-size: 18px; line-height: 26px; overflow: auto; padding: 6px 10px; border-radius: 3px; font-family: Helvetica, arial,sans-serif; font-family: Consolas,"Liberation Mono",Courier,monospace; }
+	.reveal pre .notes{color: #998;font-style: italic; }
+
+	.demo_pic_list li{ float:left; width:320px; margin-right:1em;}
+	.demo_pic_list li img{ width:320px;}
+	.demo_pic_list li span{ font-size:22px;}
+	
+	.reveal .test_pic_list { margin:0 auto; list-style:none; width:1200px;}
+	.reveal .test_pic_list ::after{ display:block; clear:both; height:0; content:"\200B"; }
+	.test_pic_list li{ float:left; width:250px; margin-right:30px;}
+	.test_pic_list li:last-child{ margin-right:0;}
+	.test_pic_list li img{ float:left; width:250px;}
+	.test_pic_list li span{ font-size:16px;}
+
+	.reveal .content_list{ font-size:0.8em;}
+	.reveal .author{ float: right; margin-top:30px; font-size:0.8em;}
+	
+	</style>
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+        
+			<section>
+				<h1 class="title">伪元素浅析</h1>
+				<p class="author">李津</p>
+			</section>
+            
+            <section>
+				<h1>伪元素是什么？</h1>
+                <p class="source">Pseudo-elements create abstractions about the document tree beyond those specified by the document language. For instance, document languages do not offer mechanisms to access the first letter or first line of an element's content. CSS pseudo-elements allow style sheet designers to refer to this otherwise inaccessible information. Pseudo-elements may also provide style sheet designers a way to assign style to content that does not exist in the source document (e.g., the :before and :after pseudo-elements give access to generated content).</p>
+                <small class="link"><a href="http://www.w3.org/TR/2011/REC-CSS2-20110607/selector.html#pseudo-elements">http://www.w3.org/TR/2011/REC-CSS2-20110607/selector.html#pseudo-elements</a></small>
+                <p class="text">伪元素创造出了文档语言制定的DOM树之外的抽象内容<i>(可以被渲染出来的元素，但并不真正存在于DOM树)</i>，举例来说，文档语言没有提供访问内容首字母或第一行文字的方法，伪元素使我们可以控制这部分内容的样式，伪元素还可以赋予不存在于源代码中的内容以样式，例如使用“:before 和 :after ” 所产生出的内容。</p>
+			</section>
+           
+            <section>
+				<h1>伪元素和伪类的区别？</h1>
+				<h2>伪类的概念</h2>
+         		<p class="source">Pseudo-classes classify elements on characteristics other than their name, attributes or content; in principle characteristics that cannot be deduced from the document tree. Pseudo-classes may be dynamic, in the sense that an element may acquire or lose a pseudo-class while a user interacts with the document. The exceptions are ':first-child', which can be deduced from the document tree, and ':lang()', which can be deduced from the document tree in some cases.</p>
+                <small class="link"><a href="http://www.w3.org/TR/2011/REC-CSS2-20110607/selector.html#pseudo-elements">http://www.w3.org/TR/2011/REC-CSS2-20110607/selector.html#pseudo-elements</a></small>
+                <p class="text">伪类被划分为一类是基于特征而不是它们的名字、属性或者内容；原则上伪类是不存在于DOM树中的，伪类给人感觉是动态的（更像一种状态），当用户在页面点击操作时元素可以获得或者失去一个伪类。但“:first-child”是个例外，它存在于DOM树中， “‘:lang()”这个伪类在某些例子中也会出现在DOM树中。</p>
+                <p class="tip">参考阅读<a href="http://swordair.com/origin-and-difference-between-css-pseudo-classes-and-pseudo-elements/">CSS伪类与CSS伪元素的区别及由来</a></p>
+			</section>
+
+			<section>
+				<h1>在书写时应当区分两者</h1>
+                <p class="source">This :: notation is introduced by the current document in order to establish a discrimination between pseudo-classes and pseudo-elements. For compatibility with existing style sheets, user agents must also accept the previous one-colon notation for pseudo-elements introduced in CSS levels 1 and 2 (namely, :first-line, :first-letter, :before and :after). This compatibility is not allowed for the new pseudo-elements introduced in this specification.</p>
+                <small class="link"><a href="http://www.w3.org/TR/2011/REC-css3-selectors-20110929/">http://www.w3.org/TR/2011/REC-css3-selectors-20110929/</a></small>
+                <p class="text">在最新的标准中明确注明，伪元素应该使用“:: ”和伪类进行区分，为兼容已有的css1和2规范，浏览器可以识别只用一个“: ”的伪元素，但在新规范中不再允许伪元素使用“: ”了。
+                <p class="text">目前ie8不能识别“:: ”,但移动端浏览器支持良好，从遵循规范角度出发，建议大家在书写触屏版页面样式时使用“:: ”</p>
+
+			</section>
+            
+            <section>
+            	<section>
+					<h1>目前有哪些伪元素</h1>
+	                <ul class="content_list">
+						<li>::first-line</li>
+						<li>::first-letter</li>
+						<li>::before <small>css2.1</small></li>
+						<li>::after <small>css2.1</small></li>
+						<li>
+							<i>::selection <small>css3</small></i><br>
+							<p class="tip">并未列入标准(曾经被写入推荐标准，但后来被删除),目前已被各大主流浏览器支持。<a href="http://www.w3schools.com/cssref/sel_selection.asp ">详解</a></p>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>::first-line</h2>
+					<p class="source">The ::first-line pseudo-element describes the contents of the first formatted line of an element.</p><!-- <pre>p:first-line { text-transform: uppercase }</pre></p>
+					<p class="text">The above rule means "change the letters of the first line of every paragraph to uppercase". However, the selector "P:first-line" does not match any real HTML element. It does match a pseudo-element that conforming user agents will insert at the beginning of every paragraph. <a class="fr" href="http://www.w3schools.com/css/css_pseudo_elements.asp">demo</a></p> -->
+					<small class="link"><a href="http://www.w3.org/TR/2011/REC-CSS2-20110607/selector.html#first-line-pseudo">http://www.w3.org/TR/2011/REC-CSS2-20110607/selector.html#first-line-pseudo</a></small>
+					<p class="text">::first-line伪元素可以用来控制格式化指定内容的第一行文字。</p>
+
+					<h2>::first-letter</h2>
+					<p class="source">The :first-letter pseudo-element must select the first letter of the first line of a block, if it is not preceded by any other content (such as images or inline tables) on its line. The :first-letter pseudo-element may be used for "initial caps" and "drop caps", which are common typographical effects. This type of initial letter is similar to an inline-level element if its 'float' property is 'none', otherwise it is similar to a floated element.</p>
+					<small class="link"><a href="http://www.w3.org/TR/2011/REC-CSS2-20110607/selector.html#first-line-pseudo">http://www.w3.org/TR/2011/REC-CSS2-20110607/selector.html#first-line-pseudo</a></small>
+					<p class="text">::first-letter伪元素是用来控制一个元素中的第一个字母而不是其他内容的（汉语内容是第一个汉字）， ::first-letter可以用来实现首字母大写及下沉这种常见的文字效果。</p>
+
+					<small><a href="demo/first-line first-letter.htm">demo</a></small>
+				</section>
+
+				<section>
+					<h1>::before和::after</h1>
+					<p class="text">The ':before' and ':after' pseudo-elements can be used to insert generated content before or after an element's content.</p>
+					<p class="text">The ':before' and ':after' pseudo-elements can be used to insert generated content before or after an element's content.</p>
+
+					
+					<small class="fr">http://www.w3.org/TR/2011/REC-CSS2-20110607/selector.html#before-and-after</small>
+
+					<p class="tip">input不支持::before和::after </p>
+					<small class="link">http://www.zhihu.com/question/21296044</small>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h1>::before ::after应用详解</h1>
+					<p class="text">In some cases, authors may want user agents to render content that does not come from the document tree. One familiar example of this is a numbered list; the author does not want to list the numbers explicitly, he or she wants the user agent to generate them automatically. Similarly, authors may want the user agent to insert the word "Figure" before the caption of a figure, or "Chapter 7" before the seventh chapter title. For audio or braille in particular, user agents should be able to insert these strings.</p>
+
+				</section>
+
+				<section>
+					<h1>"content"属性值的使用</h1>
+					<ul>
+						<li></li>
+					</ul>
+				</section>
+			</section>
+            
+           
+			
+		</div>
+	</div>
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.min.js"></script>
+	<script>
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+			mouseWheel: true,
+			keyboard: true,
+			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+			// Optional libraries used to extend on reveal.js
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+				{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+			]
+		});
+	</script>
+</body>
+</html>

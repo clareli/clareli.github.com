@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+h1:before {
+    content: no-open-quote;
+}
+h1:after {
+    content: close-quote;
+}
+/* Specify pairs of quotes for two levels in two languages */
+q:lang(en) { quotes: '"' '"' "'" "'" }
+q:lang(no) { quotes: "«" "»" '"' '"' }
+
+/* Insert quotes before and after Q element content */
+q:before { content: open-quote }
+q:after  { content: close-quote }
+
+OL { counter-reset: item }
+LI { display: block }
+LI:before { content: counter(item) ". "; counter-increment: item }
+
+BODY {
+    counter-reset: chapter;      /* Create a chapter counter scope */
+}
+H1:before {
+    content: "Chapter " counter(chapter) ". ";
+    counter-increment: chapter;  /* Add 1 to chapter */
+}
+H1 {
+    counter-reset: section;      /* Set section to 0 */
+}
+H2:before {
+    content: counter(chapter) "." counter(section) " ";
+    counter-increment: section;
+}
+
+H1 { counter-reset: section -1 imagenum 99 }
+
+H1:before        { content: counter(chno, upper-latin) ". " }
+H2:before        { content: counter(section, upper-roman) " - " }
+BLOCKQUOTE:after { content: " [" counter(bq, lower-greek) "]" }
+DIV.note:before  { content: counter(notecntr, disc) " " }
+P:before         { content: counter(p, none) }
+
+</style>
+<BODY>
+    <P><Q>Trøndere gråter når <Q>Vinsjan på kaia</Q> blir deklamert.</Q>
+	<OL>                    <!-- {item[0]=0        -->
+  <LI>item</LI>         <!--  item[0]++ (=1)   -->
+  <LI>item              <!--  item[0]++ (=2)   -->
+    <OL>                <!--  {item[1]=0       -->
+      <LI>item</LI>     <!--   item[1]++ (=1)  -->
+      <LI>item</LI>     <!--   item[1]++ (=2)  -->
+      <LI>item          <!--   item[1]++ (=3)  -->
+        <OL>            <!--   {item[2]=0      -->
+          <LI>item</LI> <!--    item[2]++ (=1) -->
+        </OL>           <!--                   -->
+        <OL>            <!--   }{item[2]=0     -->
+          <LI>item</LI> <!--    item[2]++ (=1) -->
+        </OL>           <!--                   -->
+      </LI>             <!--   }               -->
+      <LI>item</LI>     <!--   item[1]++ (=4)  -->
+    </OL>               <!--                   -->
+  </LI>                 <!--  }                -->
+  <LI>item</LI>         <!--  item[0]++ (=3)   -->
+  <LI>item</LI>         <!--  item[0]++ (=4)   -->
+</OL>                   <!--                   -->
+<OL>                    <!-- }{item[0]=0       -->
+  <LI>item</LI>         <!--  item[0]++ (=1)   -->
+  <LI>item</LI>         <!--  item[0]++ (=2)   -->
+</OL> 
+
+ <h1>About CSS</h1>
+ <h1>About CSS</h1>                <!--                   -->
+ <h1>About CSS</h1> <!--  chapter++ (=1) | {section=0       -->
+  <h2>CSS 2</h2>     <!--                 |  section++ (=1)  -->
+  <h2>CSS 2.1</h2>   <!--                 |  section++ (=2)  -->
+  <h1>Style</h1>     <!--  chapter++ (=2) |}{ section=0      -->
+
+</BODY>
+</html>

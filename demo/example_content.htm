@@ -1,0 +1,296 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>content的各种值</title>
+</head>
+
+<body>
+<style type="text/css">
+*{ margin:0px; padding:0px; font-size:14px;}
+li{ list-style: none;}
+body{background: -webkit-radial-gradient(center, circle cover, #f7fbfc 0%, #add9e4 100%);}
+.container{ width: 800px;box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);margin: -5px auto; padding: 20px 0; background-color:#fff; border-radius:10px;}
+section{ margin-bottom:15px;}
+.title_wrap{position: relative; height:40px; margin:0 0 10px -15px; box-shadow: 0px 0px 2px rgba(0,0,0,0.3);}
+.title_wrap::before{position: absolute; left:-15px; top:25px; display: block; content:""; border-color: transparent #7d90a3 transparent transparent;border-style: solid;border-width:15px;}
+.title_wrap h2{position:relative; z-index:1; background: #7f9db9; font-size:14px; line-height:40px; padding-left:20px; color: #fff;text-shadow: 1px 1px 2px rgba(0,0,0,0.2);}
+.content_wrap{ padding:0 15px 0 20px; font-size:12px;}
+.content_wrap p{font-size:14px;line-height:24px;}
+
+.content_wrap pre{width:90%; margin:10px 0 20px; background-color: #f8f8f8; border: 1px solid #ddd; font-size:14px; line-height:20px; overflow: auto; padding: 6px 10px; border-radius: 3px; font-family: Helvetica, arial,sans-serif; font-family: Consolas,"Liberation Mono",Courier,monospace; }
+
+.content:after {content: attr(href);}
+
+#counter li{
+  line-height:24px;
+  list-style:none outside none;
+  counter-increment: title1;
+}
+#counter li:before{
+  content:"第"counter(title1)"章：";
+  font-size:14px;
+  color:#f00;
+}
+#counter li li{
+  margin-left:28px;
+  counter-increment: title2;
+}
+#counter li li:before{
+  content:counter(title1)"."counter(title2)" ";
+}
+
+.title_txt:hover {position: relative;}
+.title_txt[href]:hover:after {
+  content: attr(title);
+  padding: 4px 8px;
+  color: #333;
+  position: absolute;
+  left: 10px; 
+  top: -30px;
+  white-space: nowrap; 
+  z-index: 20px;
+  border-radius: 5px;  
+  box-shadow: 0px 0px 2px #333;  
+  background-image: -webkit-linear-gradient(top, #eeeeee, #cccccc);  
+}
+
+.text dd, .text address { quotes: "\300A" "\300B"; display: inline; }
+.text dd,.text dt{ line-height:24px;}
+.text dd:before { content: open-quote; }
+.text dd:after { content: close-quote; }
+dd + address:before { content: "（"; display: inline; }
+dd + address:after { content: "）"; display: inline; }
+
+/* 为不同语言指定引号的表现 */
+:lang(en) > q {quotes:'"' '"';}
+:lang(no) > q {quotes:"«" "»";}
+:lang(ch) > q {quotes:"“" "”";}
+
+/* 在q标签的前后插入引号 */
+q:before {content:open-quote;}
+q:after  {content:close-quote;}
+
+p a[href$=".pdf"]:after {content: url("http://www.zhangxinxu.com/study/image/icon_pdf.png");}
+p a[rel="external"]:after {content: url("http://www.zhangxinxu.com/study/image/icon_link.png");}
+
+.icon_list a{font-size:16px;}
+.icon_list a[href]:before{content:'';margin-right:5px;}
+
+.icon_list a[href$='.txt']:before{
+  content:url(../img/icon_txt.gif);
+}
+.icon_list a[href$='.pdf']:before{
+  content:url(../img/icon_pdf.gif);
+}
+.icon_list a[href$='.doc']:before{
+  content:url(../img/icon_doc.gif);
+}
+.icon_list a[href$='.jpg']:before{
+  content:url(../img/icon_pic.gif);
+}
+.icon_list a[href^="mailto:"]:before{
+  content:url(../img/icon_mailto.gif);
+}
+
+#special li:before,
+#special li:after{
+  color:#f00;
+}
+#special li{
+  line-height:24px;
+}
+#special li:nth-child(2n+1):before{
+  color:#ccc;
+}
+#special li:first-child:before,
+#special li:first-child:after{
+  content:"\25ba";
+}
+#special li:first-child:after{
+  transform:scale(-1);
+}
+#special li:nth-of-type(2):before{
+  content:"\2714";
+}
+#special li:nth-child(3):after{
+  content:"\00bb";
+}
+#special li:last-of-type:before{
+  content:"\00a9";
+  margin-right:5px;
+}
+
+</style>
+
+<div class="container">
+  <section>
+    <div class="title_wrap">
+      <h2>读取属性值</h2>
+    </div>
+    <div class="content_wrap">
+    <p>
+      <a title="搜狗网址" class="content" href="http://www.sogou.com/">搜狗的网址是</a>
+    </p>
+<pre>
+.content:after {content: attr(href);}
+</pre>
+    <p>
+      北京时间2014年7月11日，雅虎体育最强记者Adrian Wojnarwoski报道，消息源表示波什将继续暂停与
+      <a title="休斯敦火箭队" href="www.nba.com" class="title_txt">火箭</a>
+      的会谈，等待勒布朗-詹姆斯的最终决定。波什还不想在詹姆斯最终决定之前就签下最终合约。
+    </p>
+<pre>
+.title_txt[href]:hover:after {content: attr(title);}</pre>
+    </div>
+  </section>
+
+  <section>
+    <div class="title_wrap">
+      <h2>计数器生成有序列表</h2>
+    </div>
+    <div class="content_wrap">
+      <ol class="demo" id="counter">
+          <li>
+            css3新增的选择器
+            <ol>
+              <li>属性选择器</li>
+              <li>结构伪类选择器</li>
+            </ol>
+          </li>
+          <li>
+            增强的文本和颜色功能
+            <ol>
+              <li>文本阴影，文本换行，溢出文本</li>
+              <li>rgba色彩模式</li>
+            </ol>
+          </li>
+          <li>
+            新增的弹性盒模型
+            <ol>
+              <li>box布局</li>
+              <li>弹性布局实战</li>
+            </ol>
+          </li>
+        </ol>
+<pre>
+#counter li{
+  list-style:none outside none;
+  counter-increment: title1;
+}
+#counter li:before{
+  content:"第"counter(title1)"章：";
+}
+#counter li li{
+  counter-increment: title2;
+}
+#counter li li:before{
+  content:counter(title1)"."counter(title2);
+}  
+</pre>
+      </div>
+  </section>
+
+  <section>
+    <div class="title_wrap">
+      <h2>为不同语言内容插入相应的标点符号</h2>
+    </div>
+    <div class="content_wrap">
+      <div class="text">
+        <dl>
+          <dt>中国四大名著</dt>
+          <dd>三国演义</dd>
+          <address>罗贯中</address>
+          <br />
+          <dd>水浒传</dd>
+          <address>施耐庵</address>
+          <br />
+          <dd>西游记</dd>
+          <address>吴承恩</address>
+          <br />
+          <dd>红楼梦</dd>
+          <address>曹雪芹</address>
+          <br />
+        </dl>
+      </div>
+<pre>
+.text dd, .text address { quotes: "\300A" "\300B"; display: inline; }
+.text dd:before { content: open-quote; }
+.text dd:after { content: close-quote; }
+dd + address:before { content: "（"; display: inline; }
+dd + address:after { content: "）"; display: inline; }  
+</pre>
+    <p lang="en"><q>It’s only work if somebody makes you do it.</q></p>
+    <p lang="no"><q>Hvis du forteller meg nok en vits, så skal jeg slå deg til jorden.</q></p>
+    <p lang="ch"><q>欢迎来到上海，欢迎参观世博会！</q></p>
+<pre>
+/* 为不同语言指定引号的表现 */
+:lang(en) > q {quotes:'"' '"';}
+:lang(no) > q {quotes:"«" "»";}
+:lang(ch) > q {quotes:"“" "”";}
+
+/* 在q标签的前后插入引号 */
+q:before {content:open-quote;}
+q:after  {content:close-quote;}  
+</pre>
+  </div>
+  </section>
+
+  <section>
+    <div class="title_wrap">
+      <h2>显示链接内容对应图标</h2>
+    </div>
+    <div class="content_wrap">
+    <ul class="icon_list">
+            <li><a href="#noname.txt">source.txt</a></li>
+            <li><a href="#noname.doc">source.doc</a></li>
+            <li><a href="#noname.pdf">source.pdf</a></li>
+            <li><a href="#noname.jpg">source.jpg</a></li>
+            <li><a href="mailto:xuyc_brother@foxmail.com">mailto:marvin</a></li>
+    </ul>
+<pre>
+.icon_list a[href$='.txt']:before{content:url(images/icon_txt.gif);}
+.icon_list a[href$='.pdf']:before{content:url(images/icon_pdf.gif);}
+.icon_list a[href$='.doc']:before{content:url(images/icon_doc.gif);}
+.icon_list a[href$='.jpg']:before{content:url(images/icon_pic.gif);}
+.icon_list a[href^="mailto:"]:before{content:url(images/icon_mailto.gif);}
+</pre>
+    </div>
+  </section>
+
+  <section>
+    <div class="title_wrap">
+      <h2>插入特殊字符</h2>
+    </div>
+    <div class="content_wrap">
+      <ul class="nostyle demo" id="special">
+            <li>css3新增的选择器</li>
+            <li>增强的文本和颜色功能</li>
+            <li>新增的弹性盒模型</li>
+            <li>copyright</li>
+      </ul>
+<pre>
+#special li:first-child:before,
+#special li:first-child:after{
+  content:"\25ba";
+}
+#special li:first-child:after{
+  transform:scale(-1);
+}
+#special li:nth-of-type(2):before{
+  content:"\2714";
+}
+#special li:nth-child(3):after{
+  content:"\00bb";
+}
+#special li:last-of-type:before{
+  content:"\00a9";
+  margin-right:5px;
+}
+</pre>
+  </div>
+  </section>
+</div>
+
+</body>
+</html>
