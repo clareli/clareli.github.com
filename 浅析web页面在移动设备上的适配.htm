@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>浅析web页面在移动设备上的适配</title>
+	<meta name="description" content="">
+	<meta name="author" content="clareli">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/league.css" id="theme">
+	<!-- <link rel="stylesheet" media="print" href="css/print/pdf.css"> -->
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+	<style type="text/css">
+	.reveal section img {
+	    margin: 15px 0px;
+	    background: rgba(255, 255, 255, 0.12);
+	    border: 1px solid #eee;
+	    box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+	}
+
+	.reveal .roll{ line-height:1.6em;}
+
+	.reveal {font-family: "Verdana","microsoft yahei",sans-serif;}
+	.reveal .title{ text-align: center;}
+	.reveal h1{ font-size:1.6em; margin-bottom:30px; font-family: "Verdana","microsoft yahei",sans-serif; letter-spacing:0;text-transform:none;}
+	.reveal h2{ font-size:1em; margin:1em auto 0.5em; font-family: "Verdana","microsoft yahei",sans-serif;}
+	.reveal p{ clear:both;}
+	.reveal pre{width:100%; background-color: #f8f8f8; border: 1px solid #ddd; font-size: 18px; line-height: 26px; overflow: auto; padding: 6px 10px; border-radius: 3px; font-family: Helvetica, arial,sans-serif; font-family: Consolas,"Liberation Mono",Courier,monospace; }
+	.reveal pre .notes{color: #998;font-style: italic;}
+
+	.reveal .text{ font-size:0.7em; line-height:1.6em;}
+	.reveal .source{ font-size:0.5em; line-height:1.6em;}
+	.reveal .link{ float: right; margin:5px auto 20px;}
+	.reveal .link a{font-size:0.7em;font-style:italic;}
+	.reveal .tip{ font-size:0.7em; line-height:1.6em;}
+	.reveal .tip a{line-height:1.6em;}
+	.reveal .tip::before{ content:"注："}
+	.reveal .content_list{ font-size:0.8em;}
+	.reveal .author{ float: right; margin-top:30px; font-size:0.8em;}
+	.reveal .content_list li a{line-height:2;}
+	
+	</style>
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+        
+			<section>
+				<h1 class="title">web页面在移动设备上的适配</h1>
+				<p class="author">李津</p>
+			</section>
+
+			<section>
+				<p class="text">进入移动互联网时代，手持智能设备，如手机、平板电脑等，已逐渐取代PC成为了用户主要使用的网络终端，它们和PC的最大不同在于屏幕的大小以及操作方式。要想了解怎么使web页面更好的适配这些设备，首先让我们来了解下这些设备的屏幕特点。</p>
+			</section>
+
+			<section>
+				<h1>屏幕尺寸</h1>
+                <p class="text">屏幕尺寸指屏幕的对角线长度，单位是英寸，一英寸约等于2.54cm</p>
+               	<img class="fragment" src="img/p1.png" alt="iPhone尺寸">
+			</section>
+            
+            <section>
+            	<section>
+					<h1>屏幕分辨率</h1>
+	                <p class="text">分辨率又称显示分辨率、屏幕分辨率，以物理像素数量来衡量</p>
+                </section>
+                <section>
+					<h1>移动设备分辨率统计</h1>
+					<p><a href="http://www.umindex.com/devices/ios_resolutions" target="_blank">ios平台</a></p>
+					<p><a href="http://www.umindex.com/devices/android_resolutions" target="_blank">android平台</a></p>
+				</section>
+				<section>
+					<h1>iphone不同型号的分辨率</h1>
+					<img class="fragment" src="img/p2_2.png" alt="ios设备分辨率参照表" data-fragment-index="1">
+					<img class="fragment" src="img/p2_1.png" alt="ios设备分辨率统计" data-fragment-index="2">
+					<p class="tip fragment" data-fragment-index="3">6plus的分辨率为什么不是宣称的1920*1080？</p>
+				</section>
+			</section>
+		
+			<section>
+				<section>
+					<h1>几个与屏幕显示相关的概念</h1>
+				</section>
+				<section>
+					<h1>像素密度ppi</h1>
+					<p class="text fragment" data-fragment-index="1">PPI（Pixel Per Inch by diagonal）表示沿着对角线，每英寸所拥有的物理像素（Pixel）数目，以iphone6 为例：</p>
+					<img class="fragment" src="img/p3_1.png" alt="ios设备分辨率参照表" data-fragment-index="2">
+				</section>
+				<section>
+					<h1>retina屏幕</h1>
+					<p class="text fragment">所谓“Retina”是一种显示技术，可以将把更多的像素点压缩至一块屏幕里，从而达到更高的分辨率并提高屏幕显示的细腻程度。由摩托罗拉公司研发，最初该技术是用于Moto Aura上，这种分辨率在正常观看距离下足以使人肉眼无法分辨其中的单独像素，也被称为视网膜显示屏。一般ppi超过300的屏幕都可以称之为视网膜屏幕，苹果公司从iPhone4开始使用retina屏幕。</p>
+				</section>
+				<section>
+					<h1>设备物理像素和设备独立像素/逻辑像素</h1>
+					<p class="text fragment">设备物理像素就是屏幕中包含的用于显示的像素点，屏幕的物理分辨率就是由这些像素点的数量决定的。</p>
+					<p class="text fragment">设备独立像素（device independent pixels）即设备渲染出的像素，也称为逻辑像素，在屏幕上以点为单位，（为便于理解也可以把它看做css中的px），但需要注意的是它是一个相对概念，以iPhone为例</p>
+					<img class="fragment" src="img/p4.png" alt="ios设备分辨率参照表">
+					<p class="tip fragment">图中的设备分辨率对应的就是物理像素，逻辑分辨率对应的是设备独立像素，两者的比例关系（scale factor）称之为设备像素比devicePixelRatio</p>
+				</section>
+
+				<section>
+					<h1>设备像素比devicePixelRatio</h1>
+					<p class="text fragment">目前的移动设备大多采用视网膜屏，它们的ppi要比电脑屏幕高出很多，如果采用一个物理像素对应一个逻辑像素（px）渲染的话，图像和文字会很小，尤其是文字变得难以阅读。因此，移动设备的屏幕要使用等比的多个物理像素来渲染出一个逻辑像素（px）。<br>设备像素比的计算方式是：物理像素 / 设备独立像素（逻辑像素），以iPhone5为例，设备分辨率640*1136，逻辑分辨率是320*568，设备独立像素比是640/320或1136/568得到的结果是2，这个值也就是我们常看到的"2X"或者"3X"。</p>
+					<p class="text fragment">设备独立像素也有像素密度的概念，称之为dpi，这个和ppi是有区别的，而设备像素比是由ppi也就是物理像素密度决定的，因此不能混淆这两个概念。</p>
+					<img class="fragment" src="img/p3_2.png" alt="2X渲染示意" data-fragment-index="2">
+					<p class="tip fragment">devicePixelRatio在js和css3（media query）中都得到了支持，<a href="http://caniuse.com/#feat=devicepixelratio" target="_blank" data-fragment-index="4">devicePixelRatio的浏览器支持情况</a></p>
+				</section>
+
+				<section>
+					<p class="text"><span class="fragment">设备物理像素、</span><span class="fragment">设备独立像素（逻辑像素）、</span><span class="fragment">ppi与dpi，</span><span class="fragment">设备像素比，</span></p>
+					<p class="text fragment">是不是很绕，容易搞混？o(╥﹏╥)o </p>
+					<p class="text fragment"> Q&A 大家一起讨论下</p>
+				</section>
+				
+			</section>
+
+			<section>
+				<h1>iPhone屏幕显示规则</h1>
+				<p class="text fragment" data-fragment-index="1">目前的iPhone（4\4s\5\5s\6\6s）的ppi都是一致的326，设备像素比都是2。<br>iPhone 6Plus\6s Plus的实际ppi是401，<br>理论上苹果应该用401/326 * 2x=2.46x的素材。但2.46这个奇葩比例不便于切图。所以苹果为方便开发者用的是3x的素材，然后再缩放到2.46x上显示出来，实际上是缩放到2.46/3=83%。最终苹果选取了一个更容易换算的比例87%。也就是2208*0.87=1920,1242*0.87=1080。1920*1080这个分辨率是降低采样率后最终在屏幕上展现出的分辨率。</p>
+				<p class="tip fragment">资料参考<a href="http://mp.weixin.qq.com/s?__biz=MjM5NjE0MDk0Nw==&mid=202795359&idx=1&sn=673bdb9f969659d0224f6fcc495c1d41&3rd=MzA3MDU4NTYzMw==&scene=6#rd" target="_blank">详解 iPhone 6 Plus 的奇葩分辨率</a>，<a href="http://wileam.com/iphone-6-screen-cn/" target="_blank" data-fragment-index="4">iPhone 6 屏幕揭秘</a></p>
+			</section>
+
+			<section>
+				<h1>iPhone屏幕特点</h1>
+				<p class="text fragment" data-fragment-index="1">ios平台的屏幕尺寸种类有限，分辨率类型也有限（<a target="_blank" href="http://www.umindex.com/devices/ios_resolutions">数据回顾</a>），目前的主流机型集中在5/5s/6/6s/6plus/6s plus，设备像素比主要是2x和3x两种，从web开发适配的角度来说相对简单，但需要注意4/4s，因为屏幕面积小，在垂直方向上展示的内容也较少。</p>
+				<p class="text fragment">相同的ppi保证4/4s/5/5s/6/6s/显示的图像和文字大小完全一致，区别是展示内容的多少不一样，6/6s展示的内容更多，4/4s展示的内容较少，6plus/6s plus的ppi更高屏幕尺寸更大，设备像素比为3，显示的图像和文字更大一点，展示的内容也更多。</p>
+
+			</section>
+
+			<section>
+				<h1>android手机屏幕显示规则</h1>
+				<p class="text fragment">众所周知，android平台的开放性使得设备型号众多（上万种），导致屏幕尺寸的碎片化严重，这也为android适配带来了较大工作量，值得欣慰的是目前android设备屏幕的分辨率在日趋统一，大多数厂商基本都在手机上采用了1920*1080和1280*720这两种分辨率，android官方对于不同的ppi划分出了几个级别，相对应的采用不同的设备像素比进行了统一规范。</p>
+				<img class="fragment" src="img/p6.png" alt="android设备分辨率级别参照表" data-fragment-index="2">
+			</section>
+
+			<section>
+				<h1>android手机屏幕特点</h1>
+				<p class="text fragment" data-fragment-index="2">android平台虽然屏幕尺寸超多，各种分辨率也差异巨大，从480*320到2K甚至4K都已出现，好在国内市场中1280*720以及1920*1080这两种分辨率已经成为绝对主流，且占比越来越大，而且1920*1080的份额正在快速上升，估计今年内就可以成为android手机最主流的分辨率（<a target="_blank" href="http://www.umindex.com/devices/android_resolutions">数据回顾</a>），因此虽然不同设备的像素密度各异，但按照android官方的标准，我们将适配的主要精力放在1280*720以及1920*1080这两种分辨率的手机上就可以覆盖到市场上的主流设备。</p>
+				<img class="fragment" src="img/p7.png" alt="android设备主流分辨率" data-fragment-index="3">
+				<p class="text fragment">相同的分辨率可以保证在这些设备上显示的内容多少完全一致，但由于ppi不同，使得图片文字在这些手机上看起来的大小会有差异。</p>
+			</section>
+
+			<section>
+				<h1>设备的适配我们要关注什么？</h1>
+				<p class="text">了解了两大平台手机设备屏幕的特点后，可以看到web页面适配主要关注两方面，一是高ppi下的图片和icon的清晰度，这涉及到了页面的美观和可读性问题，另一方面就是在不同大小屏幕上的页面布局适应和内容展现，这直接关系到了产品用户体验是否友好这一关键问题。</p>
+			</section>
+
+			<section>
+				<h1>图片和icon的解决方案</h1>
+					<p class="text fragment">根据缩放比直接使用2倍或3倍的前景图或背景图</p>
+					<p class="text fragment">使用css的属性直接绘制icon及视觉效果</p>
+					<p class="text fragment">使用svg</p>
+					<p class="text fragment">前景图可以采用响应式图片srcset全新释义sizes属性w描述符，<a target="_blank" href="http://www.zhangxinxu.com/wordpress/2014/10/responsive-images-srcset-size-w-descriptor/">详细介绍</a></p>
+			</section>
+
+			<section>
+				<h1>使用css的属性直接绘制</h1>
+				<ul class="content_list">
+						<li class="fragment">css icon <a target="_blank" href="http://nicolasgallagher.com/pure-css-gui-icons/demo/">Pure CSS GUI icons </a></li>
+						<li class="fragment">导航hover效果 <a target="_blank" href="http://tympanus.net/Development/CreativeLinkEffects/">Creative Link Effects</a></li>
+						<li class="fragment">阴影效果 <a target="_blank" href="http://www.paulund.co.uk/playground/demo/css_box_shadow/">CSS Box Shadow Effects</a></li>
+				</ul>
+			</section>
+
+			<section>
+				<h1>使用svg绘图</h1>
+				<p class="text fragment">SVG全称为“可缩放矢量图形”（英语：Scalable Vector Graphics，SVG）是基于可扩展标记语言（XML），用于描述二维矢量图形的一种图形格式。SVG由W3C制定，是一个开放标准。</p>
+				 <ul class="content_list">
+                	<li class="fragment">使用XML格式定义图形，便于编辑修改</li>
+                	<li class="fragment">图像在放大或缩小（改变尺寸）的情况下，其图形质量不会受损失</li>
+                	<li class="fragment">图像中的文本是可选的，同时也是可搜索的</li>
+                </ul> 
+			</section>
+
+			<section>
+				<h1>页面布局自适应的解决方案</h1>
+				<p class="text fragment">css media query媒体查询</p>
+				<p class="text fragment">使用css3 flex</p>
+			</section>
+
+			<section>
+				<h1>css media query媒体查询</h1>
+				<p class="text fragment">media query可以根据页面的宽高、设备像素比、屏幕方向等因素定义不同状态下的css样式，非常灵活，我在<a target="_blank" href="http://baike.m.sogou.com/jsp/promotion_v6.html" target>搜狗企业百科</a>移动页面中使用media query对iPhone4进行了适配，保证了小屏幕上的交互体验</p>
+				<img class="fragment" src="img/p8.png" alt="media query说明">
+				<p class="tip fragment">详细介绍参考<a href="http://www.w3cplus.com/css3/css3-media-queries-for-different-devices" target="_blank">CSS3 Media Queries模板</a>、<a href="http://www.w3cplus.com/content/css3-media-queries" target="_blank">CSS3 Media Queries 详解</a></p>
+			</section>
+
+			<section>
+				<h1>使用css3 flex</h1>
+				<p class="text fragment">CSS3 弹性盒（ Flexible Box 或 flexbox），是一种当页面需要适应不同的屏幕大小以及设备类型时确保元素拥有恰当的行为的布局方式。对于很多应用来讲，弹性盒改进了块模型，既不使用浮动，也不会在弹性盒容器与其内容之间合并外边距。<a target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes">概念详解</a>，<a target="_blank"  href="https://www.w3.org/TR/2016/CR-css-flexbox-1-20160301/">w3c最新标准</a></p>
+				<p class="tip fragment">详细介绍可阅读<a target="_blank" href="http://www.w3cplus.com/css3/a-guide-to-flexbox-new.html">一个完整的Flexbox指南</a>，<a target="_blank" href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html">Flex 布局教程：实例篇</a></p>
+			</section>
+
+			<section>
+				<h1>谢谢大家! <（￣︶￣）></h1>
+			</section>
+
+			<!-- <section>
+				<h1>页面布局自适应的解决方案</h1>
+				<p class="text fragment">media query媒体查询 宽高 设备像素比 屏幕方向 以企业百科推广活动页为例，针对iphone4的小屏幕进行调整适配，使内容也可以完整展现，交互方便<a href="http://www.w3cplus.com/content/css3-media-queries" target="_blank">CSS3 Media Queries 详解</a></p>
+				<img class="fragment" src="img/p8.png" alt="media query说明">
+				<p class="text fragment">使用flex自适应布局</p>
+			</section> -->
+
+		</div>
+	</div>
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.min.js"></script>
+	<script>
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+			mouseWheel: true,
+			keyboard: true,
+			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+			// Optional libraries used to extend on reveal.js
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+				{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+			]
+		});
+	</script>
+</body>
+</html>
