@@ -129,9 +129,7 @@
 
 			<section>
 				<h1>iPhone屏幕特点</h1>
-				<p class="text fragment" data-fragment-index="1">ios平台的屏幕尺寸种类有限，分辨率类型也有限（<a target="_blank" href="http://www.umindex.com/devices/ios_resolutions">数据回顾</a>），目前的主流机型集中在5/5s/6/6s/6plus/6s plus，设备像素比主要是2x和3x两种，从web开发适配的角度来说相对简单，但需要注意4/4s，因为屏幕面积小，在垂直方向上展示的内容也较少。</p>
-				<p class="text fragment">相同的ppi保证4/4s/5/5s/6/6s/显示的图像和文字大小完全一致，区别是展示内容的多少不一样，6/6s展示的内容更多，4/4s展示的内容较少，6plus/6s plus的ppi更高屏幕尺寸更大，设备像素比为3，显示的图像和文字更大一点，展示的内容也更多。</p>
-
+				<p class="text fragment" data-fragment-index="1">ios平台的屏幕尺寸种类有限，分辨率类型也有限（<a target="_blank" href="http://www.umindex.com/devices/ios_resolutions">数据回顾</a>），目前的主流机型集中在5/5s/6/6s/6plus/6s plus，4/4s/5/5s/6/6s/的ppi完全一致，设备像素比都是2，显示的图像和文字大小完全一致。但需要注意4/4s，因为屏幕面积小，在垂直方向上展示的内容较少。6plus/6s plus的ppi更高屏幕尺寸更大，设备像素比为3，显示的图像和文字更大一点，展示的内容也更多。</p>
 			</section>
 
 			<section>
@@ -154,10 +152,10 @@
 
 			<section>
 				<h1>图片和icon的解决方案</h1>
-					<p class="text fragment">根据缩放比直接使用2倍或3倍的前景图或背景图</p>
+					<p class="text fragment">根据设备像素比对应使用2倍或3倍的前景图或背景图，即图片的实际尺寸是显示时的2倍</p>
 					<p class="text fragment">使用css的属性直接绘制icon及视觉效果</p>
-					<p class="text fragment">使用svg</p>
-					<p class="text fragment">前景图可以采用响应式图片srcset全新释义sizes属性w描述符，<a target="_blank" href="http://www.zhangxinxu.com/wordpress/2014/10/responsive-images-srcset-size-w-descriptor/">详细介绍</a></p>
+					<p class="text fragment">使用svg绘图</p>
+					<p class="text fragment">响应式图片srcset属性</p>
 			</section>
 
 			<section>
@@ -177,6 +175,16 @@
                 	<li class="fragment">图像在放大或缩小（改变尺寸）的情况下，其图形质量不会受损失</li>
                 	<li class="fragment">图像中的文本是可选的，同时也是可搜索的</li>
                 </ul> 
+			</section>
+
+			<section>
+				<h1>响应式图片srcset属性</h1>
+				<p class="text fragment">srcset属性是由W3C旗下的响应式图片社区（http://responsiveimages.org/）首先提出的，目的是旨在为使用不同分辨率的不同浏览器用户提供适合其浏览环境的图片大小的解决方案。但目前IE11尚不支持这个属性，<a target="_blank" href="http://caniuse.com/#search=srcset">浏览器支持情况</a></p>
+				<img class="fragment" src="img/p9_1.png" alt="srcset说明">
+				<p class="text fragment">我们是可以在&lt;picture&gt;标签中使用srcset属性的，例子如下：</p>
+				<img class="fragment" src="img/p9_2.png" alt="picture标签结合srcset使用">
+				<p class="tip fragment">详细内容可参考 <a target="_blank" href="http://www.zhangxinxu.com/wordpress/2014/10/responsive-images-srcset-size-w-descriptor/">响应式图片srcset全新释义sizes属性w描述符</a>，<a target="_blank" href="http://developer.51cto.com/art/201309/410720.htm">WebKit最新特性srcset简介</a></p>
+
 			</section>
 
 			<section>
