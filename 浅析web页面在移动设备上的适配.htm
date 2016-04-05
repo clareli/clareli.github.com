@@ -41,7 +41,7 @@
 	.reveal .tip{ font-size:0.5em; line-height:1.6em;}
 	.reveal .tip a{line-height:1.6em;}
 	.reveal .tip::before{ content:"注："}
-	.reveal .content-list{ font-size:0.8em;}
+	.reveal .content-list{ font-size:0.65em;}
 	.reveal .author{ float: right; margin-top:30px; font-size:0.8em;}
 	.reveal .content-list li a{line-height:2;}
 	
@@ -185,26 +185,26 @@
 
 			<section>
 				<h1>图片和icon的适配</h1>
-					<p class="text fragment">根据设备像素比对应使用2倍或3倍的前景图或背景图，即图片的实际尺寸是显示时的2倍或者3倍</p>
-					<p class="text fragment">使用css的属性直接绘制icon及视觉效果</p>
-					<p class="text fragment">使用svg绘图</p>
-					<p class="text fragment">响应式图片srcset属性</p>
+				<ul class="content-list">
+					<li class="fragment">根据设备像素比对应使用2倍或3倍的前景图或背景图，即图片的实际尺寸是显示时的2倍或者3倍</li>
+					<li class="fragment">使用css的属性直接绘制icon及视觉效果</li>
+					<li class="fragment">使用svg绘图</li>
+					<li class="fragment">响应式图片srcset属性</li>
+				</ul>
 			</section>
 
 			<section>
 				<h1>使用css的属性直接绘制</h1>
-				<ul class="content-list">
-						<li class="fragment">css icon <a target="_blank" href="http://nicolasgallagher.com/pure-css-gui-icons/demo/">Pure CSS GUI icons </a></li>
-						<li class="fragment">导航hover效果 <a target="_blank" href="http://tympanus.net/Development/CreativeLinkEffects/">Creative Link Effects</a></li>
-						<li class="fragment">阴影效果 <a target="_blank" href="http://www.paulund.co.uk/playground/demo/css_box_shadow/">CSS Box Shadow Effects</a></li>
-						<li class="fragment">导航圆角效果，<a target="_blank" href="demo/work/demo3.htm">问问触屏版页面</a></li>
-				</ul>
+				<p class="text fragment">css icon <a target="_blank" href="http://nicolasgallagher.com/pure-css-gui-icons/demo/">Pure CSS GUI icons </a></p>
+				<p class="text fragment">导航hover效果 <a target="_blank" href="http://tympanus.net/Development/CreativeLinkEffects/">Creative Link Effects</a></p>
+				<p class="text fragment">阴影效果 <a target="_blank" href="http://www.paulund.co.uk/playground/demo/css_box_shadow/">CSS Box Shadow Effects</a></p>
+				<p class="text fragment">导航圆角效果，<a target="_blank" href="demo/work/demo3.htm">问问触屏版页面</a></p>
 			</section>
 
 			<section>
 				<h1>使用svg绘图</h1>
 				<p class="text fragment">SVG全称为“可缩放矢量图形”（英语：Scalable Vector Graphics，SVG）是基于可扩展标记语言（XML），用于描述二维矢量图形的一种图形格式。SVG由W3C制定，是一个开放标准。</p>
-				 <ul class="content-list">
+				<ul class="content-list">
                 	<li class="fragment">使用XML格式定义图形，便于编辑修改</li>
                 	<li class="fragment">图像在放大或缩小（改变尺寸）的情况下，其图形质量不会受损失</li>
                 	<li class="fragment">图像中的文本是可选的，同时也是可搜索的</li>
@@ -223,13 +223,15 @@
 
 			<section>
 				<h1>页面布局的适配</h1>
-				<p class="text fragment">css media query媒体查询</p>
-				<p class="text fragment">使用css3 flex</p>
+				<ul class="content-list">
+					<li class="fragment">css media query媒体查询</li>
+					<li class="fragment">使用css3 flex</li>
+				</ul>
 			</section>
 
 			<section>
 				<h1>css media query媒体查询</h1>
-				<p class="text fragment">media query可以根据视口的宽高、设备像素比、屏幕方向等因素定义不同状态下的css样式，非常灵活，我在<a target="_blank" href="http://baike.m.sogou.com/jsp/promotion_v6.html" target>搜狗企业百科</a>移动页面中使用media query对iPhone4进行了适配，保证了小屏幕上的交互体验</p>
+				<p class="text fragment">media query可以根据viewport的宽高、设备像素比、屏幕方向等因素定义不同状态下的css样式，非常灵活，我在<a target="_blank" href="http://baike.m.sogou.com/jsp/promotion_v6.html" target>搜狗企业百科</a>移动页面中使用media query对iPhone4进行了适配，保证了小屏幕上的交互体验</p>
 				<table class="fragment">
 					<tbody>
 						<tr><th>属性</th><th>值</th><th>说明</th></tr>
