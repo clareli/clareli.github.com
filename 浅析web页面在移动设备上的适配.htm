@@ -18,7 +18,7 @@
 	<![endif]-->
 	<style type="text/css">
 	.reveal section img {
-	    margin: 15px 0px;
+	    margin: 10px 0px;
 	    background: rgba(255, 255, 255, 0.12);
 	    border: 1px solid #eee;
 	    box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
@@ -28,22 +28,30 @@
 
 	.reveal {font-family: "Verdana","microsoft yahei",sans-serif;}
 	.reveal .title{ text-align: center;}
-	.reveal h1{ font-size:1.6em; margin-bottom:30px; font-family: "Verdana","microsoft yahei",sans-serif; letter-spacing:0;text-transform:none;}
+	.reveal h1{ font-size:1.35em; margin-bottom:30px; font-family: "Verdana","microsoft yahei",sans-serif; letter-spacing:0;text-transform:none;}
 	.reveal h2{ font-size:1em; margin:1em auto 0.5em; font-family: "Verdana","microsoft yahei",sans-serif;}
-	.reveal p{ clear:both;}
-	.reveal pre{width:100%; background-color: #f8f8f8; border: 1px solid #ddd; font-size: 18px; line-height: 26px; overflow: auto; padding: 6px 10px; border-radius: 3px; font-family: Helvetica, arial,sans-serif; font-family: Consolas,"Liberation Mono",Courier,monospace; }
-	.reveal pre .notes{color: #998;font-style: italic;}
+	.reveal p{ clear:both; margin:5px 0;}
+	.reveal pre{width:100%; background-color: #002b36; border: 1px solid #666; font-size:14px; }
+	.reveal pre code{color: #f9d530; font-family: Consolas,"Liberation Mono",Courier,monospace; }
 
-	.reveal .text{ font-size:0.7em; line-height:1.6em;}
+	.reveal .text{ font-size:0.65em; line-height:1.6em;}
 	.reveal .source{ font-size:0.5em; line-height:1.6em;}
 	.reveal .link{ float: right; margin:5px auto 20px;}
 	.reveal .link a{font-size:0.7em;font-style:italic;}
-	.reveal .tip{ font-size:0.7em; line-height:1.6em;}
+	.reveal .tip{ font-size:0.5em; line-height:1.6em;}
 	.reveal .tip a{line-height:1.6em;}
 	.reveal .tip::before{ content:"注："}
-	.reveal .content_list{ font-size:0.8em;}
+	.reveal .content-list{ font-size:0.8em;}
 	.reveal .author{ float: right; margin-top:30px; font-size:0.8em;}
-	.reveal .content_list li a{line-height:2;}
+	.reveal .content-list li a{line-height:2;}
+	
+
+	.reveal table{ width:100%;}
+	.reveal table th,
+	.reveal table td
+	{ font-size:0.55em;}
+
+	.reveal table td{ padding:0.6em;}
 	
 	</style>
 </head>
@@ -57,13 +65,13 @@
 			</section>
 
 			<section>
-				<p class="text">进入移动互联网时代，手持智能设备，如手机、平板电脑等，已逐渐取代PC成为了用户主要使用的网络终端，它们和PC的最大不同在于屏幕的大小以及操作方式。要想了解怎么使web页面更好的适配这些设备，首先让我们来了解下这些设备的屏幕特点。</p>
+				<p class="text">进入移动互联网时代，手持智能设备，如手机、平板电脑等，已逐渐取代PC成为了用户主要使用的网络终端，它们和PC的最大不同在于屏幕的大小以及操作方式。要想了解怎样使web页面更好的适配这些设备，首先让我们来了解下这些设备的屏幕特点。</p>
 			</section>
 
 			<section>
 				<h1>屏幕尺寸</h1>
                 <p class="text">屏幕尺寸指屏幕的对角线长度，单位是英寸，一英寸约等于2.54cm</p>
-               	<img class="fragment" src="img/p1.png" alt="iPhone尺寸">
+               	<img class="fragment" width="500" src="img/p1.png" alt="iPhone尺寸">
 			</section>
             
             <section>
@@ -73,12 +81,12 @@
                 </section>
                 <section>
 					<h1>移动设备分辨率统计</h1>
-					<p><a href="http://www.umindex.com/devices/ios_resolutions" target="_blank">ios平台</a></p>
-					<p><a href="http://www.umindex.com/devices/android_resolutions" target="_blank">android平台</a></p>
+					<p class="text"><a href="http://www.umindex.com/devices/ios_resolutions" target="_blank">ios平台</a></p>
+					<p class="text"><a href="http://www.umindex.com/devices/android_resolutions" target="_blank">android平台</a></p>
 				</section>
 				<section>
 					<h1>iphone不同型号的分辨率</h1>
-					<img class="fragment" src="img/p2_2.png" alt="ios设备分辨率参照表" data-fragment-index="1">
+					<img class="fragment" src="img/p2_2.png" width="550" alt="ios设备分辨率参照表" data-fragment-index="1">
 					<img class="fragment" src="img/p2_1.png" alt="ios设备分辨率统计" data-fragment-index="2">
 					<p class="tip fragment" data-fragment-index="3">6plus的分辨率为什么不是宣称的1920*1080？</p>
 				</section>
@@ -95,21 +103,21 @@
 				</section>
 				<section>
 					<h1>retina屏幕</h1>
-					<p class="text fragment">所谓“Retina”是一种显示技术，可以将把更多的像素点压缩至一块屏幕里，从而达到更高的分辨率并提高屏幕显示的细腻程度。由摩托罗拉公司研发，最初该技术是用于Moto Aura上，这种分辨率在正常观看距离下足以使人肉眼无法分辨其中的单独像素，也被称为视网膜显示屏。一般ppi超过300的屏幕都可以称之为视网膜屏幕，苹果公司从iPhone4开始使用retina屏幕。</p>
+					<p class="text fragment">所谓“Retina”是一种显示技术，可以将把更多的像素点压缩至一块屏幕里，从而达到更高的分辨率并提高屏幕显示的细腻程度。这种分辨率在正常观看距离下足以使人肉眼无法分辨其中的单独像素，也被称为视网膜显示屏。一般ppi超过300的屏幕都可以称之为视网膜屏幕，苹果公司从iPhone4开始使用retina屏幕。</p>
 				</section>
 				<section>
 					<h1>设备物理像素和设备独立像素/逻辑像素</h1>
 					<p class="text fragment">设备物理像素就是屏幕中包含的用于显示的像素点，屏幕的物理分辨率就是由这些像素点的数量决定的。</p>
-					<p class="text fragment">设备独立像素（device independent pixels）即设备渲染出的像素，也称为逻辑像素，在屏幕上以点为单位，（为便于理解也可以把它看做css中的px），但需要注意的是它是一个相对概念，以iPhone为例</p>
+					<p class="text fragment">设备独立像素即设备渲染出的像素，也称为逻辑像素，在屏幕上以点为单位（为便于理解也可以把它看做css中的px），但需要注意的是它是一个相对概念，以iPhone为例：</p>
 					<img class="fragment" src="img/p4.png" alt="ios设备分辨率参照表">
 					<p class="tip fragment">图中的设备分辨率对应的就是物理像素，逻辑分辨率对应的是设备独立像素，两者的比例关系（scale factor）称之为设备像素比devicePixelRatio</p>
 				</section>
 
 				<section>
 					<h1>设备像素比devicePixelRatio</h1>
-					<p class="text fragment">目前的移动设备大多采用视网膜屏，它们的ppi要比电脑屏幕高出很多，如果采用一个物理像素对应一个逻辑像素（px）渲染的话，图像和文字会很小，尤其是文字变得难以阅读。因此，移动设备的屏幕要使用等比的多个物理像素来渲染出一个逻辑像素（px）。<br>设备像素比的计算方式是：物理像素 / 设备独立像素（逻辑像素），以iPhone5为例，设备分辨率640*1136，逻辑分辨率是320*568，设备独立像素比是640/320或1136/568得到的结果是2，这个值也就是我们常看到的"2X"或者"3X"。</p>
+					<p class="text fragment">目前的移动设备大多采用视网膜屏，它们的ppi要比电脑屏幕高出很多，如果采用一个物理像素对应一个逻辑像素（px）渲染的话，图像和文字会很小，尤其是文字变得难以阅读。因此，移动设备的屏幕要使用等比的多个物理像素来渲染出一个逻辑像素。<br>设备像素比的计算方式是：物理像素 / 设备独立像素（逻辑像素），以iPhone5为例，设备分辨率640*1136，逻辑分辨率是320*568，设备独立像素比是640/320或1136/568得到的结果是2，这个值也就是我们常看到的"2X"或者"3X"。</p>
 					<p class="text fragment">设备独立像素也有像素密度的概念，称之为dpi，这个和ppi是有区别的，而设备像素比是由ppi也就是物理像素密度决定的，因此不能混淆这两个概念。</p>
-					<img class="fragment" src="img/p3_2.png" alt="2X渲染示意" data-fragment-index="2">
+					<img class="fragment" src="img/p3_2.png" width="300"  alt="2X渲染示意" data-fragment-index="2">
 					<p class="tip fragment">devicePixelRatio在js和css3（media query）中都得到了支持，<a href="http://caniuse.com/#feat=devicepixelratio" target="_blank" data-fragment-index="4">devicePixelRatio的浏览器支持情况</a></p>
 				</section>
 
@@ -134,15 +142,15 @@
 
 			<section>
 				<h1>android手机屏幕显示规则</h1>
-				<p class="text fragment">众所周知，android平台的开放性使得设备型号众多（上万种），导致屏幕尺寸的碎片化严重，这也为android适配带来了较大工作量，值得欣慰的是目前android设备屏幕的分辨率在日趋统一，大多数厂商基本都在手机上采用了1920*1080和1280*720这两种分辨率，android官方对于不同的ppi划分出了几个级别，相对应的采用不同的设备像素比进行了统一规范。</p>
-				<img class="fragment" src="img/p6.png" alt="android设备分辨率级别参照表" data-fragment-index="2">
+				<p class="text fragment">众所周知，android平台的开放性使得设备型号众多（上万种），导致屏幕尺寸的碎片化严重，这也为android适配带来了较大工作量，值得欣慰的是目前android设备屏幕的分辨率在日趋统一，大多数厂商基本都在手机上采用了1920*1080和1280*720这两种分辨率，android官方对于不同的ppi划分出了几个级别，根据这个级别对设备像素比进行了统一。</p>
+				<img class="fragment" src="img/p6_1.png" alt="android设备分辨率级别参照表" data-fragment-index="2">
 			</section>
 
 			<section>
 				<h1>android手机屏幕特点</h1>
 				<p class="text fragment" data-fragment-index="2">android平台虽然屏幕尺寸超多，各种分辨率也差异巨大，从480*320到2K甚至4K都已出现，好在国内市场中1280*720以及1920*1080这两种分辨率已经成为绝对主流，且占比越来越大，而且1920*1080的份额正在快速上升，估计今年内就可以成为android手机最主流的分辨率（<a target="_blank" href="http://www.umindex.com/devices/android_resolutions">数据回顾</a>），因此虽然不同设备的像素密度各异，但按照android官方的标准，我们将适配的主要精力放在1280*720以及1920*1080这两种分辨率的手机上就可以覆盖到市场上的主流设备。</p>
 				<img class="fragment" src="img/p7.png" alt="android设备主流分辨率" data-fragment-index="3">
-				<p class="text fragment">相同的分辨率可以保证在这些设备上显示的内容多少完全一致，但由于ppi不同，使得图片文字在这些手机上看起来的大小会有差异。</p>
+				<p class="tip fragment">相同的分辨率可以保证在这些设备上显示的内容多少完全一致，但由于ppi不同，使得图片文字在这些手机上看起来的大小会有差异。</p>
 			</section>
 
 			<section>
@@ -151,8 +159,33 @@
 			</section>
 
 			<section>
-				<h1>图片和icon的解决方案</h1>
-					<p class="text fragment">根据设备像素比对应使用2倍或3倍的前景图或背景图，即图片的实际尺寸是显示时的2倍</p>
+				<h1>viewport</h1>
+				<p class="text fragment">通俗的讲，移动设备上的viewport就是设备的屏幕上能用来显示我们的网页的那一块区域，具体来说，就是浏览器上（也可能是一个app中的webview）用来显示网页的那部分区域。一般情况下，我们都要对页面中的meta viewport进行如下设置，以保证页面在移动端浏览器显示正常。</p>
+				<div class="fragment"><pre><code class="hljs hljs css">&lt;meta name="viewport" content=" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0 "&gt;</code></pre></div>
+				<table class="fragment">
+					<tbody>
+					<tr>
+					<td>width</td>
+					<td>设置layout viewport的宽度，为一个正整数，或字符串"width-device"</td></tr>
+					<tr>
+					<td>initial-scale</td>
+					<td>设置页面的初始缩放值，为一个数字，可以带小数</td></tr>
+					<tr>
+					<td>minimum-scale</td>
+					<td>允许用户的最小缩放值，为一个数字，可以带小数</td></tr>
+					<tr>
+					<td>maximum-scale</td>
+					<td>允许用户的最大缩放值，为一个数字，可以带小数</td></tr>
+					<tr>
+					<td>user-scalable</td>
+					<td>是否允许用户进行缩放，值为"no"或"yes", no 代表不允许，yes代表允许</td></tr>
+				</tbody>
+			</table>
+			</section>
+
+			<section>
+				<h1>图片和icon的适配</h1>
+					<p class="text fragment">根据设备像素比对应使用2倍或3倍的前景图或背景图，即图片的实际尺寸是显示时的2倍或者3倍</p>
 					<p class="text fragment">使用css的属性直接绘制icon及视觉效果</p>
 					<p class="text fragment">使用svg绘图</p>
 					<p class="text fragment">响应式图片srcset属性</p>
@@ -160,17 +193,18 @@
 
 			<section>
 				<h1>使用css的属性直接绘制</h1>
-				<ul class="content_list">
+				<ul class="content-list">
 						<li class="fragment">css icon <a target="_blank" href="http://nicolasgallagher.com/pure-css-gui-icons/demo/">Pure CSS GUI icons </a></li>
 						<li class="fragment">导航hover效果 <a target="_blank" href="http://tympanus.net/Development/CreativeLinkEffects/">Creative Link Effects</a></li>
 						<li class="fragment">阴影效果 <a target="_blank" href="http://www.paulund.co.uk/playground/demo/css_box_shadow/">CSS Box Shadow Effects</a></li>
+						<li class="fragment">导航圆角效果，<a target="_blank" href="demo/work/demo3.htm">问问触屏版页面</a></li>
 				</ul>
 			</section>
 
 			<section>
 				<h1>使用svg绘图</h1>
 				<p class="text fragment">SVG全称为“可缩放矢量图形”（英语：Scalable Vector Graphics，SVG）是基于可扩展标记语言（XML），用于描述二维矢量图形的一种图形格式。SVG由W3C制定，是一个开放标准。</p>
-				 <ul class="content_list">
+				 <ul class="content-list">
                 	<li class="fragment">使用XML格式定义图形，便于编辑修改</li>
                 	<li class="fragment">图像在放大或缩小（改变尺寸）的情况下，其图形质量不会受损失</li>
                 	<li class="fragment">图像中的文本是可选的，同时也是可搜索的</li>
@@ -179,25 +213,33 @@
 
 			<section>
 				<h1>响应式图片srcset属性</h1>
-				<p class="text fragment">srcset属性是由W3C旗下的响应式图片社区（http://responsiveimages.org/）首先提出的，目的是旨在为使用不同分辨率的不同浏览器用户提供适合其浏览环境的图片大小的解决方案。但目前IE11尚不支持这个属性，<a target="_blank" href="http://caniuse.com/#search=srcset">浏览器支持情况</a></p>
+				<p class="text fragment">srcset属性是由W3C旗下的响应式图片社区（http://responsiveimages.org/）首先提出的，目的是旨在为使用不同分辨率的不同浏览器用户提供适合其浏览环境的图片大小的解决方案。IE11不支持这个属性，<a target="_blank" href="http://caniuse.com/#search=srcset">浏览器支持情况</a></p>
 				<img class="fragment" src="img/p9_1.png" alt="srcset说明">
-				<p class="text fragment">我们是可以在&lt;picture&gt;标签中使用srcset属性的，例子如下：</p>
+				<p class="text fragment">我们是可以在&lt;picture&gt;标签中使用srcset属性的，IE11也不支持picture标签，例子如下：</p>
 				<img class="fragment" src="img/p9_2.png" alt="picture标签结合srcset使用">
-				<p class="tip fragment">详细内容可参考 <a target="_blank" href="http://www.zhangxinxu.com/wordpress/2014/10/responsive-images-srcset-size-w-descriptor/">响应式图片srcset全新释义sizes属性w描述符</a>，<a target="_blank" href="http://developer.51cto.com/art/201309/410720.htm">WebKit最新特性srcset简介</a></p>
+				<p class="tip fragment">详细内容可参考<a target="_blank" href="https://isux.tencent.com/responsive-image.html">响应式图像</a>，<a target="_blank" href="http://www.zhangxinxu.com/wordpress/2014/10/responsive-images-srcset-size-w-descriptor/">响应式图片srcset全新释义sizes属性w描述符</a>，<a target="_blank" href="http://developer.51cto.com/art/201309/410720.htm">WebKit最新特性srcset简介</a></p>
 
 			</section>
 
 			<section>
-				<h1>页面布局自适应的解决方案</h1>
+				<h1>页面布局的适配</h1>
 				<p class="text fragment">css media query媒体查询</p>
 				<p class="text fragment">使用css3 flex</p>
 			</section>
 
 			<section>
 				<h1>css media query媒体查询</h1>
-				<p class="text fragment">media query可以根据页面的宽高、设备像素比、屏幕方向等因素定义不同状态下的css样式，非常灵活，我在<a target="_blank" href="http://baike.m.sogou.com/jsp/promotion_v6.html" target>搜狗企业百科</a>移动页面中使用media query对iPhone4进行了适配，保证了小屏幕上的交互体验</p>
-				<img class="fragment" src="img/p8.png" alt="media query说明">
-				<p class="tip fragment">详细介绍参考<a href="http://www.w3cplus.com/css3/css3-media-queries-for-different-devices" target="_blank">CSS3 Media Queries模板</a>、<a href="http://www.w3cplus.com/content/css3-media-queries" target="_blank">CSS3 Media Queries 详解</a></p>
+				<p class="text fragment">media query可以根据视口的宽高、设备像素比、屏幕方向等因素定义不同状态下的css样式，非常灵活，我在<a target="_blank" href="http://baike.m.sogou.com/jsp/promotion_v6.html" target>搜狗企业百科</a>移动页面中使用media query对iPhone4进行了适配，保证了小屏幕上的交互体验</p>
+				<table class="fragment">
+					<tbody>
+						<tr><th>属性</th><th>值</th><th>说明</th></tr>
+						<tr class="fragment"><td>min-width / height max-width / height</td><td>数值+'px'</td><td>viewport的大小</td></tr>
+						<tr class="fragment"><td>-webkit-min-device-pixel-ratio</td><td>数字（没有单位）</td><td>设备像素比</td></tr>
+						<tr class="fragment"><td>orientation</td><td>landscape / portrait</td><td>设备的横竖屏状态</td></tr>
+					</tbody>
+				</table>
+				<p class="tip fragment">详细介绍参考<a href="http://www.w3cplus.com/css3/css3-media-queries-for-different-devices" target="_blank">CSS3 Media Queries模板</a>、<a href="http://www.w3cplus.com/content/css3-media-queries" target="_blank">CSS3 Media Queries 详解</a>、<a target="_blank" href="https://developers.google.com/web/fundamentals/design-and-ui/responsive/fundamentals/use-media-queries?hl=zh-cn#section">将 CSS 媒体查询用于自适应设计
+</a></p>
 			</section>
 
 			<section>
@@ -209,13 +251,6 @@
 			<section>
 				<h1>谢谢大家! <（￣︶￣）></h1>
 			</section>
-
-			<!-- <section>
-				<h1>页面布局自适应的解决方案</h1>
-				<p class="text fragment">media query媒体查询 宽高 设备像素比 屏幕方向 以企业百科推广活动页为例，针对iphone4的小屏幕进行调整适配，使内容也可以完整展现，交互方便<a href="http://www.w3cplus.com/content/css3-media-queries" target="_blank">CSS3 Media Queries 详解</a></p>
-				<img class="fragment" src="img/p8.png" alt="media query说明">
-				<p class="text fragment">使用flex自适应布局</p>
-			</section> -->
 
 		</div>
 	</div>
