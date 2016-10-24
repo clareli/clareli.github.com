@@ -9,7 +9,7 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 	<link rel="stylesheet" href="css/reveal.css">
-	<link rel="stylesheet" href="css/theme/league.css" id="theme">
+	<link rel="stylesheet" href="css/theme/beige.css" id="theme">
 	<!-- <link rel="stylesheet" media="print" href="css/print/pdf.css"> -->
 	<!-- For syntax highlighting -->
 	<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -24,7 +24,7 @@
 	    box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
 	}
 
-	/*.reveal .roll{ line-height:1.6em;}*/
+	.reveal .roll{ line-height: inherit;}
 
 	.reveal {font-family: "Verdana","microsoft yahei",sans-serif;}
 	.reveal .title{ text-align: center;}
@@ -74,17 +74,17 @@
 				<h1>为啥要用 Markdown 写文档？</h1>
 				<ul class="content-list">
 					<li class="fragment">" Markdown 格式化语法设计的目的就是为了易读，" Markdown 的创始人 John Gruber of Daring Fireball 说</li>
-					<li class="fragment">Markdown 已经成为当下写作的主流工具，尤其对于开发同学来说，git 完美支持</li>
+					<li class="fragment">Markdown 已经成为当下主流的写作方式，尤其对于开发同学来说，git 完美支持</li>
 				</ul>
 			</section>
 
 			<section>
 				<h1>Markdown 特点</h1>
 				<ul class="content-list">
-					<li class="fragment">学习门槛较低(<a href="http://www.jianshu.com/p/q81RER" target="_blank">献给写作者的 Markdown 新手指南</a>)，可以专注于文字内容而不是排版格式，写作效率较高，<a href="http://www.jianshu.com/p/PpDNMG" target="_blank">Markdown 写作浅谈</a></li>
+					<li class="fragment">学习门槛低 (<a href="http://www.jianshu.com/p/q81RER" target="_blank">献给写作者的 Markdown 新手指南</a>) ，极易上手，可以专注于文字内容而不是排版格式，写作效率较高，<a href="http://www.jianshu.com/p/PpDNMG" target="_blank">Markdown 写作浅谈</a></li>
 					<li class="fragment">用 [TOC] 就可以自动生成目录，一目了然</li>
-					<li class="fragment">完美呈现代码，支持按照不同语言进行高亮显示，并支持输出复杂数学公式、流程图等，非常适合工作记录文档</li>
-					<li class="fragment">轻松发布成 HTML、PDF 文件，HTML 文件配合 css 可以完美适配各种终端，浏览查阅效果极佳</li>
+					<li class="fragment">完美呈现代码，支持按照不同语言进行高亮显示，并支持输出复杂数学公式、流程图等，非常适合文档记录</li>
+					<li class="fragment">轻松发布成 HTML、PDF 格式文件，HTML 文件配合 css 可以完美适配各种终端，浏览查阅效果极佳</li>
 					<li class="fragment">纯文本内容，兼容所有的文本编辑器和字处理软件，可以随时修改</li>
 				</ul>
 			</section>
@@ -106,11 +106,11 @@
 				<h2>sublime结合插件使用</h2>
 				<h3 class="fragment">优点</h3>
 				<ul class="content-list">
-					<li class="fragment">只需安装相应插件就可实现语法高亮、实时预览、导出 html 等功能，推荐 markdown preview 和 SideBarEnhancements 侧栏右键功能增强插件</li>
+					<li class="fragment">只需安装相应插件就可实现语法高亮、文件预览、导出 html 等功能，推荐 markdown preview 和 SideBarEnhancements 两款插件</li>
 				</ul>
 				<h3 class="fragment">缺点</h3>
 				<ul class="content-list">
-					<li class="fragment">需要安装多种插件，配置麻烦，导出的 html 代码有冗余</li>
+					<li class="fragment">导出的 html 代码有冗余</li>
 				</ul>
 			</section>
 
@@ -118,11 +118,11 @@
                 <h2>客户端工具 <a href="http://markdownpad.com/" target="_blank"> MarkdownPad 2</a>（官方软件）</h2>
                 <h3 class="fragment">优点</h3>
                 <ul class="content-list">
-					<li class="fragment">需要安装客户端，功能强大，语法规范，支持实时预览，导出文件方便。</li>
+					<li class="fragment">需要安装客户端，功能强大，支持实时预览，导出文件方便</li>
 				</ul>
 				<h3 class="fragment">缺点</h3>
 				<ul class="content-list">
-					<li class="fragment">需要购买 pro 版本才能支持 table 标签输出等高级语法。</li>
+					<li class="fragment">需要购买 pro 版本才能支持 table 标签输出等高级语法</li>
 				</ul>
 			</section>
 
@@ -130,11 +130,11 @@
                 <h2>客户端工具 Cmd Markdown（国产）<a href="https://www.zybuluo.com/" target="_blank">stackedit</a></h2>
                 <h3 class="fragment">优点</h3>
                 <ul class="content-list">
-					<li class="fragment">既有在线版，也有客户端版本，功能强大，界面友好，支持实时预览，导出文件方便。</li>
+					<li class="fragment">有在线版，也有客户端版本，功能强大，界面友好，支持实时预览，导出文件方便。</li>
 				</ul>
 				<h3 class="fragment">缺点</h3>
 				<ul class="content-list">
-					<li class="fragment">需要注册才可使用，导出的html有大量冗余，不够简洁，部分高级功能需要购买会员资格</li>
+					<li class="fragment">需要注册才可使用，导出的 html 有大量冗余，不够简洁，部分高级功能需要购买会员资格才可以使用</li>
 				</ul>
 			</section>
 
@@ -146,8 +146,11 @@
 			<section>
 				<h1>轻松写文档才是使用 Markdown 的目的</h1>
 				<ul class="content-list">
-					<li class="fragment">开发中，除了语言上的沟通，有时文档也是很有帮助的，但打开word是不是就不想写了，因为还要调整排版和格式，贴了代码也没法看，太TM麻烦了，烦！！囧orz</li>
-					<li class="fragment">除了代码中必要的注释</li>
+					<li class="fragment">开发中，除了语言上的沟通，有时文档也是很有帮助的，但打开word是不是就不想写了，因为还要调整排版和格式，贴了代码也没法看，太TM麻烦了，烦！！所以连文档都省了，囧orz</li>
+					<li class="fragment">代码注释非常重要，但毕竟只能起到简单说明的作用，时间久了容易遗忘细节</li>
+					<li class="fragment">个人建议用 Markdown 写个文档补充，记录说明一下开发中较为复杂的逻辑或遇到的坑等等，对于自己或其他同学进行修改维护也是很有帮助的：）
+						
+					</li>
 				</ul>
 
 			</section>
