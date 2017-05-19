@@ -53,7 +53,11 @@
 	{ font-size:0.55em;}
 
 	.reveal table td{ padding:0.6em;}
-	
+
+	@media screen and (max-width:540px){
+        .demo img{width:400px;}
+    }
+
 	</style>
 </head>
 <body>
@@ -90,21 +94,6 @@
 			</section>
 
 			<section>
-				<h2>GIF格式</h2>
-				<p class="text fragment">全称为 Graphics Interchange Format 是一种位图图形文件格式，以8位色（即256种颜色）重现真彩色的图像。它实际上是一种压缩文档，采用 LZW 压缩算法进行编码</p>
-				<img class="fragment" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Rotating_earth_%28large%29.gif/200px-Rotating_earth_%28large%29.gif" alt="">
-			</section>
-
-			<section>
-				<h2>GIF的特点</h2>
-				<ul class="content-list">
-					<li class="fragment">优秀的压缩算法使其在一定程度上保证图像质量的同时将体积变得很小</li>
-					<li class="fragment">可插入多帧，从而实现动画效果</li>
-					<li class="fragment">由于采用了8位压缩，最多只能处理256种颜色，故不宜应用于真彩色图片，目前GIF基本只用于展现动态图片</li>
-				</ul>
-			</section>
-
-			<section>
 				<h2>PNG格式</h2>
 				<p class="text fragment">全称为 Portable Network Graphics（便携式网络图形）。其设计目的是试图替代GIF和TIFF文件格式，支持索引、灰度、RGB三种颜色方案以及Alpha通道等特性。</p>
 				<img class="fragment" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/PNG_transparency_demonstration_1.png/280px-PNG_transparency_demonstration_1.png" alt="">
@@ -120,6 +109,22 @@
 			</section>
 
 			<section>
+				<h2>GIF格式</h2>
+				<p class="text fragment">全称为 Graphics Interchange Format 是一种位图图形文件格式，以8位色（即256种颜色）重现真彩色的图像。它实际上是一种压缩文档，采用 LZW 压缩算法进行编码，目前多用于展现动态图片</p>
+				<img class="fragment" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Rotating_earth_%28large%29.gif/200px-Rotating_earth_%28large%29.gif" alt="">
+			</section>
+
+			<!-- <section>
+				<h2>GIF的特点</h2>
+				<ul class="content-list">
+					<li class="fragment">优秀的压缩算法使其在一定程度上保证图像质量的同时将体积变得很小</li>
+					<li class="fragment">可插入多帧，从而实现动画效果</li>
+					<li class="fragment">由于采用了8位压缩，最多只能处理256种颜色，故不宜应用于真彩色图片，目前GIF基本只用于展现动态图片</li>
+				</ul>
+			</section> -->
+
+
+			<section>
 				<h2>小结</h2>
 				<p class="text fragment">以上三种最为流行的图像格式各有特点，但同时也都有较为明显劣势，目前在移动互联网渐趋主流的大环境下，部分劣势显得更加明显，比如：为保证图片在手机屏幕上的观感清晰，很多图片不能采取较大的压缩比，因此体积也相对较大，这就造成下载会耗费大量的流量，在网络环境一般的时候加载较慢。</p>
 			</section>
@@ -133,48 +138,57 @@
 
 			<section>
 				<h2>WebP 和 jpeg 对比</h2>
-				<div class="fragment">
-					<img src="img/ldh800.jpg" alt="" width=400>
+				<div class="demo fragment">
+					<img src="img/ldh800.jpg" alt="">
 					<small>jpeg格式 图像尺寸785*523 大小为44.9K</small>
 				</div>
-				<div class="fragment">
-					<img src="img/ldh800.webp" alt="" width=400>
+				<div class="demo fragment">
+					<img src="img/ldh800.webp" alt="">
 					<small>webp格式 图像尺寸785*523 大小为22.8K</small>
 				</div>
 				<p class="text fragment">在肉眼几乎无法分辨图像差异的情况下，体积减少近50%</p>
 			</section>
 
 			<section>
-				<h2>WebP 格式的优点</h2>
+				<h2>WebP 格式的特点</h2>
 				<ul class="content-list">
 					<li class="fragment">具有更优的图像数据压缩算法，能带来更小的图片体积，而且拥有肉眼识别无差异的图像质量</li>
 					<li class="fragment">同时具备了无损和有损的压缩模式、Alpha 透明以及动画的特性</li>
 					<li class="fragment">根据 Google 的测试，无损压缩后的 WebP 比 PNG 文件少了 26% 的体积，有损压缩后的 WebP 图片相比于等效质量指标的 JPEG 图片减少了 25%~34% 的体积</li>
 					<li class="fragment">WebP 格式和其他格式（ JPEG PNG ）等相比解码耗时较长</li>
 				</ul>
-			</section>
-
-			<section>
-				<h2>WebP 格式的不足</h2>
-				<ul class="content-list">
-					<li class="fragment">根据Google的测试，目前 WebP 与 JPG 相比较，编码速度慢10倍，解码速度慢1.5倍。</li>
-					<li class="fragment">目前只有chrome浏览器原生支持</li>
-				</ul>
-			</section>
-
-			<section>
-				<h2>WebP 的使用情况</h2>
-				<p class="text fragment">在 Google 的明星产品如 Youtube、Gmail、Google Play 中都可以看到 WebP 的身影，而 Chrome 网上商店甚至已完全使用了 WebP。国外公司如 Facebook、ebay 和国内公司如腾讯、淘宝、美团等也已使用</p>
-			</section>
-
-			<section>
-				<h2>使用 WebP 带来的好处</h2>
-				<p class="text fragment"></p>
-			</section>
-
-			<section>
-				<h2>WebP 的浏览器支持情况</h2>
 				<p class="text fragment"><a href="http://caniuse.com/#search=webp" target="_blank">caniuse</a></p>
+			</section>
+
+			<section>
+				<h2>如何判断浏览器是否支持webp？</h2>
+				<pre>
+                    <code data-trim>
+    var img = new Image();
+    img.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
+    img.onload = img.onerror = function() {
+      if(img.width === 2 && img.height === 2){
+          //支持webp    
+      }else{
+          //不支持webp
+      };
+    };
+                           </code>
+                        </pre>
+			</section>
+
+			<section>
+				<h2>不支持webp的浏览器怎么办？</h2>
+				<pre>
+					<code data-trim>&lt;img data-src=&quot;1.png&quot; data-webp=&quot;1.png.webp&quot; 
+                    src=&quot;data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7&quot;/&gt;
+					</code>
+				</pre>
+               <ol>
+                    <li>img标签使用1px的透明gif做填充图片</li>
+                    <li>利用data-src放普通图片的url，data-webp放webp图片的Url</li>
+                    <li>利用js判断浏览器是否支持webp，从而加载相应格式的图片</li>
+               </ol>
 			</section>
             
             <section>
@@ -184,7 +198,19 @@
             </section>
 
             <section>
-            	<h2>推荐使用 webP 的原因</h2>
+				<h2>目前 WebP 的使用情况</h2>
+				<p class="text fragment">在 Google 的明星产品如 Youtube、Gmail、Google Play 中都可以看到 WebP 的身影，而 Chrome 网上商店甚至已完全使用了 WebP。国外公司如 Facebook、ebay 和国内公司如腾讯、淘宝、美团等也已使用</p>
+				<ul class="content-list">
+					<li class="fragment">淘宝的搜索结果页</li>
+					<li class="fragment">Qzone</li>
+				</ul>
+			</section>
+
+            <section>
+            	<h2>webP 的适用场景</h2>
+            	<ul class="content-list">
+					<li class="fragment">淘宝的搜索结果页</li>
+				</ul>
 				<p class="text fragment">无线端安卓份额占比很大，目前搜狗百科的数据</p>
             	<img class="fragment" src="img/wap.png" alt="百科无线系统占比">
             </section>
