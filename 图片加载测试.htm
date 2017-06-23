@@ -15,12 +15,12 @@
 </style>
 <body>
     <!-- <input type="text" value="00:00"> -->
-    <img src="img/webp/kb01_800.webp" alt="">
-    <img src="img/webp/kb02_800.jpg" alt="">
+    <!-- <img src="img/webp/kb01_800.webp" alt="">
+    <img src="img/webp/kb02_800.jpg" alt=""> -->
 
-    <!--<img data-webp-src="img/webp/kb01_800.webp" data-src="img/webp/kb01_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb01_800.webp" data-src="img/webp/kb01_800.jpg" src="" alt="">
     <img data-webp-src="img/webp/kb02_800.webp" data-src="img/webp/kb02_800.jpg" src="" alt="">
-    <img data-webp-src="img/webp/kb03_800.webp" data-src="img/webp/kb03_800.jpg" src="" alt="">
+    <!-- <img data-webp-src="img/webp/kb03_800.webp" data-src="img/webp/kb03_800.jpg" src="" alt="">
     <img data-webp-src="img/webp/kb04_800.webp" data-src="img/webp/kb04_800.jpg" src="" alt="">
     <img data-webp-src="img/webp/kb05_800.webp" data-src="img/webp/kb05_800.jpg" src="" alt="">
     <img data-webp-src="img/webp/kb06_800.webp" data-src="img/webp/kb06_800.jpg" src="" alt="">
@@ -57,7 +57,7 @@
     <img data-webp-src="img/webp/lbj17_800.webp" data-src="img/webp/lbj17_800.jpg" src="" alt="">
     <img data-webp-src="img/webp/lbj18_800.webp" data-src="img/webp/lbj18_800.jpg" src="" alt="">
     <img data-webp-src="img/webp/lbj19_800.webp" data-src="img/webp/lbj19_800.jpg" src="" alt="">
-    <img data-webp-src="img/webp/lbj20_800.webp" data-src="img/webp/lbj20_800.jpg" src="" alt=""> -->
+    <img data-webp-src="img/webp/lbj20_800.webp" data-src="img/webp/lbj20_800.jpg" src="" alt="">  -->
     <!-- <img src="img/h03_800.jpg" alt="">
     <img src="img/d01_800.jpg" alt="">
     <img src="img/d02_800.jpg" alt="">
@@ -70,7 +70,7 @@
     <img src="img/h02_800.jpg" alt="">
     <img src="img/h03_800.jpg" alt=""> -->
 
-<!-- <script>
+<script>
     window.onload = function(){
         var n= 0, timer=null;
         var oTxt=document.getElementsByTagName("input")[0];
@@ -82,13 +82,13 @@
         
           if(img.width === 2){
             //支持webp
-            alert("加载webp图片")
+            // alert("加载webp图片")
             Array.from(imgArr).forEach(function (item) {
               item.setAttribute('src', item.getAttribute("data-webp-src"))
             });
           }else{
             //不支持webp
-            alert("加载jpg图片")
+            // alert("加载jpg图片")
             Array.from(imgArr).forEach(function (item) {
               item.setAttribute('src', item.getAttribute("data-src"))
             });
@@ -96,6 +96,6 @@
           };
         };
     }
-</script> -->
+</script>
 </body>
 </html>
