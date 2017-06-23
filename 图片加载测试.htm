@@ -1,0 +1,102 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>js计时器</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+</head>
+<style>
+    @media only screen 
+    and (max-device-width : 667px) 
+    and (orientation : portrait) { 
+      img{width:100%;}
+    }
+</style>
+<body>
+    <input type="text" value="00:00">
+    <img data-webp-src="img/webp/kb01_800.webp" data-src="img/webp/kb01_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb02_800.webp" data-src="img/webp/kb02_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb03_800.webp" data-src="img/webp/kb03_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb04_800.webp" data-src="img/webp/kb04_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb05_800.webp" data-src="img/webp/kb05_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb06_800.webp" data-src="img/webp/kb06_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb07_800.webp" data-src="img/webp/kb07_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb08_800.webp" data-src="img/webp/kb08_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb09_800.webp" data-src="img/webp/kb09_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb10_800.webp" data-src="img/webp/kb10_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb11_800.webp" data-src="img/webp/kb11_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb12_800.webp" data-src="img/webp/kb12_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb13_800.webp" data-src="img/webp/kb13_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb14_800.webp" data-src="img/webp/kb14_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb15_800.webp" data-src="img/webp/kb15_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb16_800.webp" data-src="img/webp/kb16_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb17_800.webp" data-src="img/webp/kb17_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb18_800.webp" data-src="img/webp/kb18_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb19_800.webp" data-src="img/webp/kb19_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb20_800.webp" data-src="img/webp/kb20_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj01_800.webp" data-src="img/webp/lbj01_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj02_800.webp" data-src="img/webp/lbj02_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj03_800.webp" data-src="img/webp/lbj03_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj04_800.webp" data-src="img/webp/lbj04_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj05_800.webp" data-src="img/webp/lbj05_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj06_800.webp" data-src="img/webp/lbj06_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj07_800.webp" data-src="img/webp/lbj07_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj08_800.webp" data-src="img/webp/lbj08_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj09_800.webp" data-src="img/webp/lbj09_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj10_800.webp" data-src="img/webp/lbj10_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj11_800.webp" data-src="img/webp/lbj11_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj12_800.webp" data-src="img/webp/lbj12_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj13_800.webp" data-src="img/webp/lbj13_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj14_800.webp" data-src="img/webp/lbj14_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj15_800.webp" data-src="img/webp/lbj15_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj16_800.webp" data-src="img/webp/lbj16_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj17_800.webp" data-src="img/webp/lbj17_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj18_800.webp" data-src="img/webp/lbj18_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj19_800.webp" data-src="img/webp/lbj19_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj20_800.webp" data-src="img/webp/lbj20_800.jpg" src="" alt="">
+    <!-- <img src="img/h03_800.jpg" alt="">
+    <img src="img/d01_800.jpg" alt="">
+    <img src="img/d02_800.jpg" alt="">
+    <img src="img/d03_800.jpg" alt="">
+    <img src="img/s01_800.jpg" alt="">
+    <img src="img/s02_800.jpg" alt="">
+    <img src="img/s03_800.jpg" alt="">
+    <img src="img/s04_800.jpg" alt="">
+    <img src="img/h01_800.jpg" alt="">
+    <img src="img/h02_800.jpg" alt="">
+    <img src="img/h03_800.jpg" alt=""> -->
+
+<script>
+    window.onload = function(){
+        var n= 0, timer=null;
+        var oTxt=document.getElementsByTagName("input")[0];
+        var imgArr = [];
+        var img = new Image();
+        imgArr = document.querySelectorAll("img");
+        img.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
+        img.onload = img.onerror = function() {
+        
+          if(img.width === 2){
+            //支持webp
+            alert("1")
+            Array.from(imgArr).forEach(function (item) {
+              item.setAttribute('src', item.getAttribute("data-webp-src"))
+            });
+          }else{
+            //不支持webp
+            alert("2")
+            Array.from(imgArr).forEach(function (item) {
+              item.setAttribute('src', item.getAttribute("data-src"))
+            });
+              
+          };
+        };
+    }
+    //补零
+    function toDub(n){
+        return n<10?"0"+n:""+n;
+    }
+</script>
+</body>
+</html>
