@@ -69,10 +69,10 @@
 
 <script>
     window.onload = function(){
-        var n= 0, timer=null;
-        var oTxt=document.getElementsByTagName("input")[0];
-        var imgArr = [];
-        var img = new Image();
+        let n= 0, timer=null;
+        let oTxt=document.getElementsByTagName("input")[0];
+        let imgArr = [];
+        let img = new Image();
         imgArr = document.querySelectorAll("img");
         img.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
         img.onload = img.onerror = function() {
