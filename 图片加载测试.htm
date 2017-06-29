@@ -42,33 +42,38 @@ html,.btn{
     background-color: rgba(0, 0, 0, 0.5);
 }
 .site-dialog {
-  overflow: hidden;
-  width: 80%;
-  max-width: 400px;
-  padding: 0;
-  border-width: 0;
-  border-radius: 5px;
-  background: transparent;
-  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    width: 80%;
+    max-width: 400px;
+    padding: 0;
+    border-width: 0;
+    border-radius: 5px;
+    background: transparent;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.3);
 }
 .site-dialog h1 {
-  font-size: 16px;
-  font-weight: normal;
-  margin: 0;
-  color: #fff;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0;
+    color: #fff;
 }
 .site-dialog p {
-  font-size: 16px; text-align: center;
+    font-size: 16px; text-align: center;
 }
 .site-dialog .dialog-header {
-  padding: 12px 20px;
-  background-color: #434a54;
+    padding: 12px 20px;
+    background-color: #434a54;
 }
 .site-dialog .dialog-content {
-  padding:20px;
-  color: #555;
-  background-color: #fff;
+    padding:20px;
+    color: #555;
+    background-color: #fff;
 }
+.site-dialog .btn-confirm {
+    background-color: #c0392b;
+    color:#fff;
+}
+.btn-confirm:hover{ background-color: #aa2416; transition: all .3s ease;}
 </style>
 <body>
 
@@ -119,17 +124,17 @@ html,.btn{
     <img data-webp-src="img/webp/lbj19_800.webp" data-src="img/webp/lbj19_800.jpg" src="" alt="">
     <img data-webp-src="img/webp/lbj20_800.webp" data-src="img/webp/lbj20_800.jpg" src="" alt="">
 
-    <!-- <dialog id="confirm-delete" class="site-dialog">
+    <dialog id="confirm-delete" class="site-dialog">
           <header class="dialog-header">
             <h1>NB的浏览器</h1>
           </header>
           <div class="dialog-content">
-            <p>我支持dialog标签</p>
+            <p>支持webp格式图片</p>
           </div>
           <div class="btn-group cf">
-            <button class="btn btn-cancel" id="cancel">靠谱！</button>
+            <button class="btn btn-confirm" id="cancel">666！</button>
           </div>
-    </dialog> -->
+    </dialog>
 
 <script>
     window.onload = function(){
@@ -138,40 +143,37 @@ html,.btn{
         let imgArr = [];
         let img = new Image();
         let dialog = document.querySelector('dialog');
-        let btn = document.querySelector('.btn');
+        let btn = document.querySelector('.btn-confirm');
         imgArr = document.querySelectorAll("img");
         img.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
         
         img.onload = img.onerror = function() {
-        
           if(img.width === 2){
             //支持webp
-                alert("支持webp格式图片")
-                //dialog.showModal();
+                dialog.showModal();
             } else {
             //不支持webp
                 alert("不支持webp格式图片") 
             }
-
-            // btn.onclick = function(){
-            //     dialog.close();
-            // }
-
         };
+
+        btn.onclick = function(){
+             dialog.close();
+        }
 
         let loadWapp = document.querySelector('.btn-webp');
         let loadJpg = document.querySelector('.btn-jpg');
 
-            loadWapp.onclick = function(){
-                Array.from(imgArr).forEach(function (item) {
-                    item.setAttribute('src', item.getAttribute("data-webp-src"))
-                });
-            }
+        loadWapp.onclick = function(){
+            Array.from(imgArr).forEach(function (item) {
+                item.setAttribute('src', item.getAttribute("data-webp-src"))
+            });
+        }
 
-            loadJpg.onclick = function(){
-                Array.from(imgArr).forEach(function (item) {
-                    item.setAttribute('src', item.getAttribute("data-src"))
-                });
+        loadJpg.onclick = function(){
+            Array.from(imgArr).forEach(function (item) {
+                item.setAttribute('src', item.getAttribute("data-src"))
+            });
         }
     }
 </script>
