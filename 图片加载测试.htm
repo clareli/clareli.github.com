@@ -12,6 +12,59 @@
     and (orientation : portrait) { 
       img{width:100%;}
     }
+html,.btn{
+  font-family: -apple-system,"Helvetica Neue",Helvetica,Arial,"PingFang SC","Hiragino Sans GB","WenQuanYi Micro Hei","Microsoft Yahei",sans-serif;
+}
+.btn {
+  padding: 10px 15px;
+  cursor: pointer;
+  color: #fff;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 3px;
+  background-color: #c0392b;
+}
+.btn-group {
+  padding: 5px;
+  text-align: right;
+  background-color: #f5f6f8;
+}
+::backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.site-dialog {
+  overflow: hidden;
+  width: 80%;
+  max-width: 400px;
+  padding: 0;
+  border-width: 0;
+  border-radius: 5px;
+  background: transparent;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.3);
+}
+.site-dialog h1 {
+  font-size: 16px;
+  font-weight: normal;
+  margin: 0;
+  color: #fff;
+}
+.site-dialog p {
+  font-size: 16px; text-align: center;
+}
+.site-dialog .dialog-header {
+  padding: 12px 20px;
+  background-color: #434a54;
+}
+.site-dialog .dialog-content {
+  padding:20px;
+  color: #555;
+  background-color: #fff;
+}
 </style>
 <body>
 
@@ -19,6 +72,7 @@
     <!-- <input type="text" value="00:00"> -->
     <!-- <img src="img/webp/kb01_800.webp" alt="">
     <img src="img/webp/kb02_800.jpg" alt=""> -->
+    
 
     <img data-webp-src="img/webp/kb01_800.webp" data-src="img/webp/kb01_800.jpg" src="" alt="">
     <img data-webp-src="img/webp/kb02_800.webp" data-src="img/webp/kb02_800.jpg" src="" alt="">
@@ -60,17 +114,18 @@
     <img data-webp-src="img/webp/lbj18_800.webp" data-src="img/webp/lbj18_800.jpg" src="" alt="">
     <img data-webp-src="img/webp/lbj19_800.webp" data-src="img/webp/lbj19_800.jpg" src="" alt="">
     <img data-webp-src="img/webp/lbj20_800.webp" data-src="img/webp/lbj20_800.jpg" src="" alt="">
-    <!-- <img src="img/h03_800.jpg" alt="">
-    <img src="img/d01_800.jpg" alt="">
-    <img src="img/d02_800.jpg" alt="">
-    <img src="img/d03_800.jpg" alt="">
-    <img src="img/s01_800.jpg" alt="">
-    <img src="img/s02_800.jpg" alt="">
-    <img src="img/s03_800.jpg" alt="">
-    <img src="img/s04_800.jpg" alt="">
-    <img src="img/h01_800.jpg" alt="">
-    <img src="img/h02_800.jpg" alt="">
-    <img src="img/h03_800.jpg" alt=""> -->
+
+    <!-- <dialog id="confirm-delete" class="site-dialog">
+          <header class="dialog-header">
+            <h1>NB的浏览器</h1>
+          </header>
+          <div class="dialog-content">
+            <p>我支持dialog标签</p>
+          </div>
+          <div class="btn-group cf">
+            <button class="btn btn-cancel" id="cancel">靠谱！</button>
+          </div>
+    </dialog> -->
 
 <script>
     window.onload = function(){
@@ -78,9 +133,11 @@
         //var oTxt=document.getElementsByTagName("input")[0];
         let imgArr = [];
         let img = new Image();
+        let dialog = document.querySelector('dialog');
+        let btn = document.querySelector('.btn');
         imgArr = document.querySelectorAll("img");
         img.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
-
+        
         img.onload = img.onerror = function() {
         
           if(img.width === 2){
@@ -89,7 +146,7 @@
                 Array.from(imgArr).forEach(function (item) {
                     item.setAttribute('src', item.getAttribute("data-webp-src"))
                 });
-
+                //dialog.showModal();
             } else {
             //不支持webp
                 alert("不支持webp格式图片")
@@ -114,7 +171,9 @@
                 });
             }
 
-
+            // btn.onclick = function(){
+            //     dialog.close();
+            // }
 
         };
     }
