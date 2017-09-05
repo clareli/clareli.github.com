@@ -139,14 +139,15 @@
 
 			<section>
 				<h2>WebP 和 jpeg 对比</h2>
-				<div class="demo fragment">
-					<img src="img/ldh800.jpg" alt="">
+				<p class="text fragment"><a href="单张图片加载测试.htm" target="_blank">两种格式图片加载测试</a></p>
+				<!-- <div class="demo fragment">
+					<img src="img/ldh800.jpg" alt="" width="400">
 					<small>jpeg 格式 图像尺寸785*523 大小为44.9K</small>
 				</div>
 				<div class="demo fragment">
-					<img src="img/ldh800.webp" alt="">
+					<img src="img/ldh800.webp" alt="" width="400">
 					<small>webp 格式 图像尺寸785*523 大小为22.8K</small>
-				</div>
+				</div> -->
 				<p class="text fragment">在肉眼几乎无法分辨图像差异的情况下，体积减少近50%</p>
 			</section>
 
@@ -178,11 +179,11 @@
                         </pre>
 			</section>
 
+		
 			<section>
 				<h2>真对不同平台及浏览器加载不同格式图片</h2>
 				<pre>
-					<code data-trim>&lt;img data-src=&quot;1.png&quot; data-webp=&quot;1.png.webp&quot; 
-                    src=&quot;data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7&quot;/&gt;
+					<code data-trim>&lt;img data-src=&quot;1.png&quot; data-webp=&quot;1.png.webp&quot; src=&quot;&quot;/&gt;
 					</code>
 				</pre>
                <ul class="content-list">
@@ -190,13 +191,18 @@
                     <li>利用 js 判断浏览器是否支持 webp，从而加载相应格式的图片</li>
                </ul>
 			</section>
+
+			<section>
+				<h2>多张图片加载对比</h2>
+				<p class="text fragment"><a href="图片加载测试.htm" target="_blank">多张图片加载测试</a></p>
+			</section>
             
             <section>
 				<h2>目前 WebP 的使用情况</h2>
 				<p class="text fragment">在 Google 的明星产品如 Youtube、Gmail、Google Play 中都可以看到 WebP 的身影，而 Chrome 网上商店甚至已完全使用了 WebP。国外公司如 Facebook、ebay 和国内公司如腾讯、淘宝、美团等也已使用</p>
 				<ul class="content-list">
 					<li class="fragment">淘宝的搜索结果页</li>
-					<li class="fragment"><a href="http://www.zcfy.cc/article/862"></a>WebP 支持：超出你想象</a></li>
+					<li class="fragment"><a href="http://www.zcfy.cc/article/862">WebP 支持：超出你想象</a></li>
 					<!-- <li class="fragment">Qzone</li> -->
 				</ul>
 			</section>
