@@ -122,18 +122,6 @@ img{
     <img data-webp-src="img/webp/lbj19_800.webp" data-src="img/webp/lbj19_800.jpg" src="" alt="">
     <img data-webp-src="img/webp/lbj20_800.webp" data-src="img/webp/lbj20_800.jpg" src="" alt="">
 
-    <!-- <dialog id="confirm-delete" class="site-dialog">
-          <header class="dialog-header">
-            <h1>靠谱的浏览器</h1>
-          </header>
-          <div class="dialog-content">
-            <p>支持webp格式图片</p>
-          </div>
-          <div class="btn-group cf">
-            <button class="btn btn-confirm" id="cancel">666！</button>
-          </div>
-    </dialog> -->
-
 <script>
     window.onload = function(){
         var imgArr = [];
@@ -152,14 +140,12 @@ img{
         };
 
         loadWapp.onclick = function(){
-            alert('webp')
             for(var i = 0; i < imgArr.length; i++){
                 imgArr[i].setAttribute('src', imgArr[i].getAttribute("data-webp-src"))
             }
         }
 
         loadJpg.onclick = function(){
-            alert('jpg')
             for(var i = 0; i < imgArr.length; i++){
                 imgArr[i].setAttribute('src', imgArr[i].getAttribute("data-src"))
             }
