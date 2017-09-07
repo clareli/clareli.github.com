@@ -82,8 +82,8 @@ img{
     <button id="picWebp" class="btn btn-webp">加载webp图片</button><button id="picJpg" class="btn btn-jpg">加载jpg图片</button>
 
     <img id="imgTest" data-webp-src="img/ldh800.webp" data-src="img/ldh800.jpg" src="" alt="">
-    <img data-webp-src="img/webp/kb01_800.webp" data-src="img/webp/kb01_800.jpg" src="" alt="">
-    <img data-webp-src="img/webp/kb02_800.webp" data-src="img/webp/kb02_800.jpg" src="" alt="">
+    <!-- <img data-webp-src="img/webp/kb01_800.webp" data-src="img/webp/kb01_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb02_800.webp" data-src="img/webp/kb02_800.jpg" src="" alt=""> -->
 
 <script>
     window.onload = function(){
@@ -109,7 +109,6 @@ img{
 
         loadWapp.onclick = function(){
             //imgTest.setAttribute('src', imgTest.getAttribute("data-webp-src"))
-             alert('webp')
             for(var i = 0; i < imgArr.length; i++){
                 imgArr[i].setAttribute('src', imgArr[i].getAttribute("data-webp-src"))
             }
@@ -117,7 +116,6 @@ img{
 
         loadJpg.onclick = function(){
             //imgTest.setAttribute('src', imgTest.getAttribute("data-src"))
-            alert('jpg')
             for(var i = 0; i < imgArr.length; i++){
                 imgArr[i].setAttribute('src', imgArr[i].getAttribute("data-src"))
             }
