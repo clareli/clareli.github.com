@@ -80,10 +80,6 @@ img{
 <body>
 
     <button id="picWebp" class="btn btn-webp">加载webp图片</button><button id="picJpg" class="btn btn-jpg">加载jpg图片</button>
-    <!-- <input type="text" value="00:00"> -->
-    <!-- <img src="img/webp/kb01_800.webp" alt="">
-    <img src="img/webp/kb02_800.jpg" alt=""> -->
-    
 
     <img data-webp-src="img/webp/kb01_800.webp" data-src="img/webp/kb01_800.jpg" src="" alt="">
     <img data-webp-src="img/webp/kb02_800.webp" data-src="img/webp/kb02_800.jpg" src="" alt="">
@@ -158,14 +154,14 @@ img{
         loadWapp.onclick = function(){
             alert('webp')
             for(var i = 0; i < imgArr.length; i++){
-                imgArr[i].setAttribute('src', item.getAttribute("data-webp-src"))
+                imgArr[i].setAttribute('src', imgArr[i].getAttribute("data-webp-src"))
             }
         }
 
         loadJpg.onclick = function(){
             alert('jpg')
             for(var i = 0; i < imgArr.length; i++){
-                imgArr[i].setAttribute('src', item.getAttribute("data-src"))
+                imgArr[i].setAttribute('src', imgArr[i].getAttribute("data-src"))
             }
         }
     }

@@ -82,11 +82,16 @@ img{
     <button id="picWebp" class="btn btn-webp">加载webp图片</button><button id="picJpg" class="btn btn-jpg">加载jpg图片</button>
 
     <img id="imgTest" data-webp-src="img/ldh800.webp" data-src="img/ldh800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb01_800.webp" data-src="img/webp/kb01_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb02_800.webp" data-src="img/webp/kb02_800.jpg" src="" alt="">
 
 <script>
     window.onload = function(){
         var img = new Image();
         imgTest = document.getElementById("imgTest");
+
+        var imgArr = [];
+        imgArr = document.getElementsByTagName("img");
         img.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
         
         img.onload = img.onerror = function() {
@@ -103,11 +108,19 @@ img{
         var loadJpg = document.getElementById('picJpg');
 
         loadWapp.onclick = function(){
-            imgTest.setAttribute('src', imgTest.getAttribute("data-webp-src"))
+            //imgTest.setAttribute('src', imgTest.getAttribute("data-webp-src"))
+             alert('webp')
+            for(var i = 0; i < imgArr.length; i++){
+                imgArr[i].setAttribute('src', imgArr[i].getAttribute("data-webp-src"))
+            }
         }
 
         loadJpg.onclick = function(){
-            imgTest.setAttribute('src', imgTest.getAttribute("data-src"))
+            //imgTest.setAttribute('src', imgTest.getAttribute("data-src"))
+            alert('jpg')
+            for(var i = 0; i < imgArr.length; i++){
+                imgArr[i].setAttribute('src', imgArr[i].getAttribute("data-src"))
+            }
         }
     }
 </script>
