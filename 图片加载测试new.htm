@@ -1,0 +1,183 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>图片加载测试</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+</head>
+<style>
+    @media only screen 
+    and (max-device-width : 667px) 
+    and (orientation : portrait) { 
+      img{width:100%;}
+    }
+html,.btn{
+  font-family: -apple-system,"Helvetica Neue",Helvetica,Arial,"PingFang SC","Hiragino Sans GB","WenQuanYi Micro Hei","Microsoft Yahei",sans-serif;
+}
+img{
+    max-width: 100%;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    cursor: pointer;
+    color: #666;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3px;
+    background-color: #eee;
+}
+.btn:hover{ background-color: #e6e6e6; color:#333; transition: all .3s ease;}
+
+.btn-group {
+  padding: 10px;
+  text-align: right;
+  background-color: #f5f6f8;
+}
+::backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.site-dialog {
+    overflow: hidden;
+    width: 80%;
+    max-width: 400px;
+    padding: 0;
+    border-width: 0;
+    border-radius: 5px;
+    background: transparent;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.3);
+}
+.site-dialog h1 {
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0;
+    color: #fff;
+}
+.site-dialog p {
+    font-size: 16px; text-align: center;
+}
+.site-dialog .dialog-header {
+    padding: 12px 20px;
+    background-color: #434a54;
+}
+.site-dialog .dialog-content {
+    padding:20px;
+    color: #555;
+    background-color: #fff;
+}
+.site-dialog .btn-confirm {
+    background-color: #c0392b;
+    color:#fff;
+}
+.btn-confirm:hover{ background-color: #aa2416; transition: all .3s ease;}
+</style>
+<body>
+
+    <button id="picWebp" class="btn btn-webp">加载webp图片</button><button id="picJpg" class="btn btn-jpg">加载jpg图片</button>
+    <!-- <input type="text" value="00:00"> -->
+    <!-- <img src="img/webp/kb01_800.webp" alt="">
+    <img src="img/webp/kb02_800.jpg" alt=""> -->
+    
+
+    <img data-webp-src="img/webp/kb01_800.webp" data-src="img/webp/kb01_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb02_800.webp" data-src="img/webp/kb02_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb03_800.webp" data-src="img/webp/kb03_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb04_800.webp" data-src="img/webp/kb04_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb05_800.webp" data-src="img/webp/kb05_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb06_800.webp" data-src="img/webp/kb06_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb07_800.webp" data-src="img/webp/kb07_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb08_800.webp" data-src="img/webp/kb08_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb09_800.webp" data-src="img/webp/kb09_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb10_800.webp" data-src="img/webp/kb10_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb11_800.webp" data-src="img/webp/kb11_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb12_800.webp" data-src="img/webp/kb12_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb13_800.webp" data-src="img/webp/kb13_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb14_800.webp" data-src="img/webp/kb14_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb15_800.webp" data-src="img/webp/kb15_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb16_800.webp" data-src="img/webp/kb16_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb17_800.webp" data-src="img/webp/kb17_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb18_800.webp" data-src="img/webp/kb18_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb19_800.webp" data-src="img/webp/kb19_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb20_800.webp" data-src="img/webp/kb20_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj01_800.webp" data-src="img/webp/lbj01_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj02_800.webp" data-src="img/webp/lbj02_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj03_800.webp" data-src="img/webp/lbj03_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj04_800.webp" data-src="img/webp/lbj04_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj05_800.webp" data-src="img/webp/lbj05_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj06_800.webp" data-src="img/webp/lbj06_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj07_800.webp" data-src="img/webp/lbj07_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj08_800.webp" data-src="img/webp/lbj08_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj09_800.webp" data-src="img/webp/lbj09_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj10_800.webp" data-src="img/webp/lbj10_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj11_800.webp" data-src="img/webp/lbj11_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj12_800.webp" data-src="img/webp/lbj12_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj13_800.webp" data-src="img/webp/lbj13_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj14_800.webp" data-src="img/webp/lbj14_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj15_800.webp" data-src="img/webp/lbj15_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj16_800.webp" data-src="img/webp/lbj16_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj17_800.webp" data-src="img/webp/lbj17_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj18_800.webp" data-src="img/webp/lbj18_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj19_800.webp" data-src="img/webp/lbj19_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/lbj20_800.webp" data-src="img/webp/lbj20_800.jpg" src="" alt="">
+
+    <!-- <dialog id="confirm-delete" class="site-dialog">
+          <header class="dialog-header">
+            <h1>靠谱的浏览器</h1>
+          </header>
+          <div class="dialog-content">
+            <p>支持webp格式图片</p>
+          </div>
+          <div class="btn-group cf">
+            <button class="btn btn-confirm" id="cancel">666！</button>
+          </div>
+    </dialog> -->
+
+<script>
+    window.onload = function(){
+        //var n= 0, timer=null;
+        //var oTxt=document.getElementsByTagName("input")[0];
+        var imgArr = [];
+        var img = new Image();
+        //let dialog = document.querySelector('dialog');
+        //var btn = document.querySelector('.btn-confirm');
+        imgArr = document.getElementsByTagName("img");
+        img.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
+        
+        // img.onload = img.onerror = function() {
+        //   if(img.width === 2){
+        //     //支持webp
+        //         dialog.showModal();
+        //     } else {
+        //     //不支持webp
+        //         alert("不支持webp格式图片") 
+        //     }
+        // };
+
+        // btn.onclick = function(){
+        //      dialog.close();
+        // }
+
+        var loadWapp = document.getElementById('picWebp');
+        var loadJpg = document.getElementById('picJpg');
+
+        loadWapp.onclick = function(){
+            Array.from(imgArr).forEach(function (item) {
+                item.setAttribute('src', item.getAttribute("data-webp-src"))
+            });
+        }
+
+        loadJpg.onclick = function(){
+            Array.from(imgArr).forEach(function (item) {
+                item.setAttribute('src', item.getAttribute("data-src"))
+            });
+        }
+    }
+</script>
+</body>
+</html>
