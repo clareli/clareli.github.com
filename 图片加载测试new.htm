@@ -140,44 +140,33 @@ img{
 
 <script>
     window.onload = function(){
-        //var n= 0, timer=null;
-        //var oTxt=document.getElementsByTagName("input")[0];
         var imgArr = [];
         var img = new Image();
-        //let dialog = document.querySelector('dialog');
-        //var btn = document.querySelector('.btn-confirm');
         imgArr = document.getElementsByTagName("img");
         img.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
-        
-        // img.onload = img.onerror = function() {
-        //   if(img.width === 2){
-        //     //支持webp
-        //         dialog.showModal();
-        //     } else {
-        //     //不支持webp
-        //         alert("不支持webp格式图片") 
-        //     }
-        // };
-
-        // btn.onclick = function(){
-        //      dialog.close();
-        // }
 
         var loadWapp = document.getElementById('picWebp');
         var loadJpg = document.getElementById('picJpg');
 
+        img.onload = img.onerror = function() {
+          if(img.width === 2){
+            } else {
+                alert("不支持webp格式图片") 
+            }
+        };
+
         loadWapp.onclick = function(){
             alert('webp')
-            Array.from(imgArr).forEach(function (item) {
-                item.setAttribute('src', item.getAttribute("data-webp-src"))
-            });
+            for(var i = 0; i < imgArr.length; i++){
+                imgArr[i].setAttribute('src', item.getAttribute("data-webp-src"))
+            }
         }
 
         loadJpg.onclick = function(){
             alert('jpg')
-            Array.from(imgArr).forEach(function (item) {
-                item.setAttribute('src', item.getAttribute("data-src"))
-            });
+            for(var i = 0; i < imgArr.length; i++){
+                imgArr[i].setAttribute('src', item.getAttribute("data-src"))
+            }
         }
     }
 </script>
