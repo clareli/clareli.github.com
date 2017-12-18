@@ -1,0 +1,126 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>图片加载测试</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+</head>
+<style>
+    @media only screen 
+    and (max-device-width : 667px) 
+    and (orientation : portrait) { 
+      img{width:100%;}
+    }
+html,.btn{
+  font-family: -apple-system,"Helvetica Neue",Helvetica,Arial,"PingFang SC","Hiragino Sans GB","WenQuanYi Micro Hei","Microsoft Yahei",sans-serif;
+}
+img{
+    max-width: 100%;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    cursor: pointer;
+    color: #666;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3px;
+    background-color: #eee;
+}
+.btn:hover{ background-color: #e6e6e6; color:#333; transition: all .3s ease;}
+
+.btn-group {
+  padding: 10px;
+  text-align: right;
+  background-color: #f5f6f8;
+}
+::backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.site-dialog {
+    overflow: hidden;
+    width: 80%;
+    max-width: 400px;
+    padding: 0;
+    border-width: 0;
+    border-radius: 5px;
+    background: transparent;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.3);
+}
+.site-dialog h1 {
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0;
+    color: #fff;
+}
+.site-dialog p {
+    font-size: 16px; text-align: center;
+}
+.site-dialog .dialog-header {
+    padding: 12px 20px;
+    background-color: #434a54;
+}
+.site-dialog .dialog-content {
+    padding:20px;
+    color: #555;
+    background-color: #fff;
+}
+.site-dialog .btn-confirm {
+    background-color: #c0392b;
+    color:#fff;
+}
+.btn-confirm:hover{ background-color: #aa2416; transition: all .3s ease;}
+</style>
+<body>
+
+    <button id="picWebp" class="btn btn-webp">加载webp图片</button><button id="picJpg" class="btn btn-jpg">加载jpg图片</button>
+
+    <img id="imgTest" data-webp-src="img/ldh800.webp" data-src="img/ldh800.jpg" src="" alt="">
+    <!-- <img data-webp-src="img/webp/kb01_800.webp" data-src="img/webp/kb01_800.jpg" src="" alt="">
+    <img data-webp-src="img/webp/kb02_800.webp" data-src="img/webp/kb02_800.jpg" src="" alt=""> -->
+
+<script>
+    window.onload = function(){
+        var img = new Image();
+        imgTest = document.getElementById("imgTest");
+
+        var imgArr = [];
+        imgArr = document.getElementsByTagName("img");
+        img.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
+        
+        img.onload = img.onerror = function() {
+          if(img.width === 2){
+            //支持webp
+                //dialog.showModal();
+            } else {
+            //不支持webp
+                alert("不支持webp格式图片") 
+            }
+        };
+
+        var loadWapp = document.getElementById('picWebp');
+        var loadJpg = document.getElementById('picJpg');
+
+        loadWapp.onclick = function(){
+            //imgTest.setAttribute('src', imgTest.getAttribute("data-webp-src"))
+            for(var i = 0; i < imgArr.length; i++){
+                imgArr[i].setAttribute('src', imgArr[i].getAttribute("data-webp-src"))
+            }
+        }
+
+        loadJpg.onclick = function(){
+            //imgTest.setAttribute('src', imgTest.getAttribute("data-src"))
+            for(var i = 0; i < imgArr.length; i++){
+                imgArr[i].setAttribute('src', imgArr[i].getAttribute("data-src"))
+            }
+        }
+    }
+</script>
+</body>
+</html>
